@@ -80,7 +80,7 @@ const About = () => {
           <div className=" flex flex-row gap-4 w-full overflow-auto hide-overflow">
             {Array.from({ length: 20 }).map((i) => {
               return (
-                <div className="flex flex-col gap-2 items-center">
+                <div className="flex flex-col gap-2 items-center" key={i}>
                   <FaReact size={70} className="text-sky-600" />
                   {/* <p>React</p> */}
                 </div>
