@@ -11,7 +11,7 @@ const Projects = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4">
           {Array.from({ length: 6 }).map((i) => {
             return (
-              <div className="card bg-base-100 w-full">
+              <div className="card bg-base-100 w-full" key={i}>
                 <figure>
                   <img
                     src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
