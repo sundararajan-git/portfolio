@@ -25,7 +25,7 @@ jobs:
       - name: Build Frontend project
         run: npm run build
 
-      - name: Debug - List build files
+      - name: Debug - Check dist folder
         run: ls -la ./dist
 
       - name: Upload Frontend build files
