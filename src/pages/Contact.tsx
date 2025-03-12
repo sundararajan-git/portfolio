@@ -12,7 +12,7 @@ const Contact = () => {
         <div className="flex items-center gap-6 w-full justify-between b-2">
           {Array.from({ length: 3 }).map((i) => {
             return (
-              <div className="px-4 py-3 bg-base-100 flex items-center w-full gap-4 rounded-xl">
+              <div className="px-4 py-3 bg-base-100 flex items-center w-full gap-4 rounded-xl" key={i}>
                 <HiDeviceMobile size={50} />
                 <div className="flex flex-col gap-2">
                   <p>Phone</p>
