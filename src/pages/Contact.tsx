@@ -10,7 +10,7 @@ const Contact = () => {
         </span>
         <span className="text-xl font-medium mt-4">Contact</span>
         <div className="flex items-center gap-6 w-full justify-between b-2">
-          {Array.from({ length: 3 }).map((i) => {
+          {Array.from({ length: 3 }).map((i:any) => {
             return (
               <div className="px-4 py-3 bg-base-100 flex items-center w-full gap-4 rounded-xl" key={i}>
                 <HiDeviceMobile size={50} />
