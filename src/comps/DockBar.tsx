@@ -1,10 +1,7 @@
-import { BsGithub } from "react-icons/bs";
-import { FaCodepen, FaMediumM, FaYoutube } from "react-icons/fa";
 import { MdContacts } from "react-icons/md";
 import { RiHome6Fill, RiUser4Fill } from "react-icons/ri";
 import { SiHeadlessui } from "react-icons/si";
-import { NavLink, useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
+import { NavLink, useLocation } from "react-router-dom"
 import { PiGearFill } from "react-icons/pi";
 import { ReactNode, useEffect, useState } from "react";
 
