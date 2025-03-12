@@ -1,0 +1,63 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+.menu {
+  @apply w-full rounded gap-4 px-8 py-4;
+}
+
+.menu li a {
+  @apply w-full rounded-[5px] p-2.5 py-3 flex items-center gap-2 font-medium;
+}
+
+.avatar-online {
+  &:before {
+    @apply top-[70%] right-[10%];
+  }
+}
+
+.btn {
+  @apply rounded-[5px] border-none;
+}
+
+/*  customize the pre class Name */
+.input {
+  @apply outline-none rounded-md text-sm focus-within:ring-1 focus-within:ring-primary focus-within:border-transparent bg-transparent w-full;
+}
+.textarea {
+  @apply outline-none rounded-md text-sm focus-within:ring-1 focus-within:ring-primary focus-within:border-transparent bg-transparent w-full;
+}
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: false;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: oklch(98% 0.003 247.858);
+  --color-base-200: oklch(96% 0.007 247.896);
+  --color-base-300: oklch(92% 0.013 255.508);
+  --color-base-content: oklch(20% 0.042 265.755);
+  --color-primary: oklch(84% 0.238 128.85);
+  --color-primary-content: oklch(12% 0.042 264.695);
+  --color-secondary: oklch(84% 0.238 128.85);
+  --color-secondary-content: oklch(12% 0.042 264.695);
+  --color-accent: oklch(84% 0.238 128.85);
+  --color-accent-content: oklch(12% 0.042 264.695);
+  --color-neutral: oklch(84% 0.238 128.85);
+  --color-neutral-content: oklch(12% 0.042 264.695);
+  --color-info: oklch(84% 0.238 128.85);
+  --color-info-content: oklch(12% 0.042 264.695);
+  --color-success: oklch(84% 0.238 128.85);
+  --color-success-content: oklch(12% 0.042 264.695);
+  --color-warning: oklch(84% 0.238 128.85);
+  --color-warning-content: oklch(12% 0.042 264.695);
+  --color-error: oklch(84% 0.238 128.85);
+  --color-error-content: oklch(12% 0.042 264.695);
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 1;
+}
