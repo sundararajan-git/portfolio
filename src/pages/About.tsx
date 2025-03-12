@@ -67,9 +67,9 @@ const About = () => {
               animate={{ x: ["100%", "-100%"] }}
               transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
             >
-              {Array.from({ length: 20 }).map((i) => {
+              {Array.from({ length: 20 }).map((i:any) => {
                 return (
-                  <div className="flex flex-col gap-2 items-center hover:bg-base-200 p-2 rounded-lg cursor-pointer relative">
+                  <div key={i} className="flex flex-col gap-2 items-center hover:bg-base-200 p-2 rounded-lg cursor-pointer relative">
                     <FaReact size={70} className="text-sky-600" />
                     {/* <p className="absolute top-[40%] right-[25%]">60%</p> */}
                   </div>
@@ -78,7 +78,7 @@ const About = () => {
             </motion.div>
           </div>
           <div className=" flex flex-row gap-4 w-full overflow-auto hide-overflow">
-            {Array.from({ length: 20 }).map((i) => {
+            {Array.from({ length: 20 }).map((i:any) => {
               return (
                 <div className="flex flex-col gap-2 items-center" key={i}>
                   <FaReact size={70} className="text-sky-600" />
