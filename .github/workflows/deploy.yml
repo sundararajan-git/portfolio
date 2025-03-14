@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Build Frontend
+    name: Build
     runs-on: ubuntu-latest
 
     steps:
@@ -16,26 +16,21 @@ jobs:
 
       - name: Setup Node
         uses: actions/setup-node@v3
-        with:
-          node-version: 18
 
-      - name: Install Frontend dependencies
-        run: npm install
+      - name: Install dependencies
+        uses: bahmutov/npm-install@v1
 
-      - name: Build Frontend project
+      - name: Build project
         run: npm run build
 
-      - name: Debug - Check dist folder
-        run: ls -la ./dist
-
-      - name: Upload Frontend build files
+      - name: Upload production-ready build files
         uses: actions/upload-artifact@v4
         with:
           name: production-files
           path: ./dist
 
   deploy:
-    name: Deploy Frontend
+    name: Deploy
     needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
