@@ -2,7 +2,7 @@
 @plugin "daisyui";
 
 .menu {
-  @apply w-full rounded gap-4 px-8 py-4;
+  @apply w-full rounded gap-4 px-6 p-0;
 }
 
 .menu li a {
@@ -52,6 +52,41 @@
   --color-warning-content: oklch(12% 0.042 264.695);
   --color-error: oklch(84% 0.238 128.85);
   --color-error-content: oklch(12% 0.042 264.695);
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 1;
+}
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: false;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: oklch(98% 0.003 247.858);
+  --color-base-200: oklch(96% 0.007 247.896);
+  --color-base-300: oklch(92% 0.013 255.508);
+  --color-base-content: oklch(20% 0.042 265.755);
+  --color-primary: oklch(60% 0.25 292.717);
+  --color-primary-content: oklch(100% 0 0);
+  --color-secondary: oklch(60% 0.25 292.717);
+  --color-secondary-content: oklch(100% 0 0);
+  --color-accent: oklch(60% 0.25 292.717);
+  --color-accent-content: oklch(100% 0 0);
+  --color-neutral: oklch(60% 0.25 292.717);
+  --color-neutral-content: oklch(100% 0 0);
+  --color-info: oklch(60% 0.25 292.717);
+  --color-info-content: oklch(100% 0 0);
+  --color-success: oklch(60% 0.25 292.717);
+  --color-success-content: oklch(100% 0 0);
+  --color-warning: oklch(60% 0.25 292.717);
+  --color-warning-content: oklch(100% 0 0);
+  --color-error: oklch(60% 0.25 292.717);
+  --color-error-content: oklch(100% 0 0);
   --radius-selector: 0.5rem;
   --radius-field: 0.5rem;
   --radius-box: 1rem;

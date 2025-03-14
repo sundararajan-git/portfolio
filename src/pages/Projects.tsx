@@ -9,9 +9,9 @@ const Projects = () => {
         </span>
         <span className="text-xl font-medium mt-4">Portfolio</span>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4">
-          {Array.from({ length: 6 }).map((i) => {
+          {Array.from({ length: 6 }).map((i: any) => {
             return (
-              <div className="card bg-base-100 w-full">
+              <div className="card bg-base-100 w-full" key={i}>
                 <figure>
                   <img
                     src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"

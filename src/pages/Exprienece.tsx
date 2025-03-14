@@ -1,4 +1,5 @@
 import { FaBook } from "react-icons/fa";
+import { GoDotFill } from "react-icons/go";
 
 const Exprienece = () => {
   return (
@@ -8,19 +9,35 @@ const Exprienece = () => {
           <FaBook /> Education & Experience
         </span>
         <span className="text-xl font-medium mt-4">Resume</span>
-        <div className="grid grid-cols-1 sm:grid-cols-2  gap-4 p-4">
-          {Array.from({ length: 6 }).map((i) => {
+        <div className="grid grid-cols-1 gap-4 p-4">
+          {exprience.map((d, index: number) => {
             return (
-              <div className="bg-base-100 p-6 rounded-lg flex flex-col gap-4">
-                <div className="badge badge-outline badge-info rounded-md">
-                  <span className="text-black font-medium">2017 - Primary</span>
+              <div
+                className="bg-base-100 p-6 rounded-lg flex flex-col gap-4"
+                key={index}
+              >
+                <div className="flex items-center w-full justify-between">
+                  <span className="font-medium">
+                    {d?.name} | <span>{d?.organization}</span>
+                  </span>
+                  <div className="badge badge-outline badge-info rounded-md">
+                    <span className="text-black font-medium">{d?.year}</span>
+                  </div>
                 </div>
-                <p className="text-pretty">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
-                  similique repudiandae odio accusantium amet, labore, aliquam
-                  placeat illo dolor facilis iste tempore incidunt quibusdam,
-                  porro eveniet aut ratione neque voluptates?
-                </p>
+
+                <ul className="flex flex-col gap-2">
+                  {d?.list?.map((list: string, jndex: number) => {
+                    return (
+                      <li
+                        className="flex items-center gap-2"
+                        key={index + jndex}
+                      >
+                        <GoDotFill size={10} />
+                        {list}
+                      </li>
+                    );
+                  })}
+                </ul>
               </div>
             );
           })}
@@ -31,3 +48,45 @@ const Exprienece = () => {
   );
 };
 export default Exprienece;
+
+const exprience = [
+  {
+    year: "2023 – Present",
+    name: "React Developer",
+    organization: "sidharth Housing Ltd",
+    list: [
+      "Developed dynamic and interactive web applications using React.js with a focus on performance and scalability",
+      "Integrated Firebase for authentication (Email, Google, OTP), Firestore database, and real-time data updates.",
+      "Designed and implemented secure RESTful APIs using Firebase Cloud Functions.",
+      "Managed state efficiently using React Context API, Redux for a smooth user experience",
+      "Implemented role-based access control (RBAC) and protected routes with Firebase Authentication.",
+      "Optimized Firestore queries for faster data retrieval and reduced Firestore read operations to minimize costs",
+      "Deployed applications using Vite for faster builds and optimized performance.",
+      "Utilized Firebase Hosting and Cloud Storage for seamless deployment and asset management.",
+      "Worked with React Hooks, Tailwind CSS, and third-party libraries to enhance UI/UX",
+      "Debugged and improved app performance by monitoring logs in Firebase and using Chrome DevTools.",
+    ],
+  },
+  {
+    year: "2022 – 2021",
+    name: "Site Electrical Engineer",
+    organization: "Nuteral Electrical",
+    list: [
+      "Supervised and executed electrical installations, ensuring compliance with safety standards and project specifications.",
+      "Assisted in designing and implementing electrical systems for residential, commercial projects.",
+      "Conducted routine inspections, troubleshooting, and maintenance of electrical equipment.",
+      "Collaborated with project managers, contractors, and technicians to ensure timely project completion.",
+      "Ensured proper documentation of electrical layouts, reports, and material usage.",
+    ],
+  },
+  {
+    year: "2017 - 2021",
+    name: "B.E in Electrical Engineering",
+    organization: "Anna University",
+    list: [
+      "Gained strong foundational knowledge in electrical circuits, power systems, and automation.",
+      "Worked on academic projects involving electrical system design, energy efficiency, and automation technologies.",
+      "Developed skills in AutoCAD, MATLAB, and PLC programming for electrical system analysis.",
+    ],
+  },
+];

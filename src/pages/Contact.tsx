@@ -1,5 +1,7 @@
 import { HiDeviceMobile } from "react-icons/hi";
+import { MdEmail } from "react-icons/md";
 import { RiChatSmile3Fill } from "react-icons/ri";
+import { TiLocation } from "react-icons/ti";
 
 const Contact = () => {
   return (
@@ -9,22 +11,22 @@ const Contact = () => {
           <RiChatSmile3Fill /> Get In touch
         </span>
         <span className="text-xl font-medium mt-4">Contact</span>
-        <div className="flex items-center gap-6 w-full justify-between b-2">
-          {Array.from({ length: 3 }).map((i) => {
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {contactDetails.map((i) => {
             return (
-              <div className="px-4 py-3 bg-base-100 flex items-center w-full gap-4 rounded-xl">
-                <HiDeviceMobile size={50} />
+              <div className="px-2 py-3 bg-base-100 flex items-center w-full gap-4 rounded-xl">
+                {i.icon}
                 <div className="flex flex-col gap-2">
-                  <p>Phone</p>
-                  <p>+91 8148133743</p>
+                  <p>{i?.name}</p>
+                  <p>{i?.value}</p>
                 </div>
               </div>
             );
           })}
         </div>
         <span className="text-xl font-medium mt-4">Send Msg</span>
-        <div className="flex flex-col items-center gap-2 w-full justify-between p-4 ">
-          <div className="flex w-full justify-between gap-4">
+        <div className="flex flex-col items-center gap-2 w-full justify-between p-4 bg-red-600">
+          <div className="flex flex-col sm:flex-row w-full justify-between gap-4">
             <fieldset className="fieldset w-full">
               <legend className="fieldset-legend text-sm ">Your Name</legend>
               <input type="text" className="input" placeholder="Your Name" />
@@ -59,3 +61,21 @@ const Contact = () => {
   );
 };
 export default Contact;
+
+const contactDetails = [
+  {
+    name: "Phone",
+    value: "+91 8148133743",
+    icon: <HiDeviceMobile className="size-10" />,
+  },
+  {
+    name: "Email",
+    value: "sundararajanselvarasu@gmail.com",
+    icon: <MdEmail className="size-8" />,
+  },
+  {
+    name: "Location",
+    value: "Tamil Nadu , India",
+    icon: <TiLocation className="size-10" />,
+  },
+];

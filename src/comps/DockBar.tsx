@@ -1,10 +1,7 @@
-import { BsGithub } from "react-icons/bs";
-import { FaCodepen, FaMediumM, FaYoutube } from "react-icons/fa";
 import { MdContacts } from "react-icons/md";
 import { RiHome6Fill, RiUser4Fill } from "react-icons/ri";
 import { SiHeadlessui } from "react-icons/si";
-import { NavLink, useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
+import { useLocation, useNavigate } from "react-router-dom";
 import { PiGearFill } from "react-icons/pi";
 import { ReactNode, useEffect, useState } from "react";
 
@@ -50,6 +47,7 @@ type tabShape = {
 
 const DockBar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [navTabs, setNavTabs] = useState<tabShape[]>(tabs);
 
   useEffect(() => {
@@ -66,11 +64,14 @@ const DockBar = () => {
     });
   }, [location.pathname]);
   return (
-    <div className="dock dock-xs">
+    <div className="dock dock-md gap-2">
       {navTabs?.map((t) => {
         return (
-          <button className={`${t.active ? "dock-active" : ""}`}>
-            <NavLink to={t?.route}>{t?.icon}</NavLink>
+          <button
+            className={`${t.active ? "dock-active" : ""}`}
+            onClick={() => navigate(t?.route)}
+          >
+            {t?.icon}
           </button>
         );
       })}

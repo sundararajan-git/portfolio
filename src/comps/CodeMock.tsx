@@ -14,8 +14,8 @@ const text = `
 
   // Start Server
   app.listen(PORT, () => {
-  console.log("Server is running" + PORT)});
-  }`;
+  console.log("Server is running"));
+}`;
 const CodeMock = () => {
   const [displayText, setDisplayText] = useState("");
 
@@ -30,7 +30,11 @@ const CodeMock = () => {
   }, [text]);
 
   return (
-    <pre className="font-sans text-primary jetbrains-mono">{displayText}</pre>
+    <div className="mockup-code bg-black text-white w-full min-h-[60%] py-8 p-2 ">
+      <pre className="font-sans text-primary jetbrains-mono text-xs sm:text-sm">
+        {displayText}
+      </pre>
+    </div>
   );
 };
 export default CodeMock;

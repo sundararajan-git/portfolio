@@ -9,7 +9,7 @@ import "./App.css";
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/portfolio/">
       <Routes>
         <Route element={<Provider />}>
           <Route index element={<Home />} />
