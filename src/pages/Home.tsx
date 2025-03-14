@@ -8,42 +8,25 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const naviagte = useNavigate();
   return (
-    <motion.div className="w-full h-full flex flex-col items-end gap-4 overflow-x-hidden overflow-y-auto">
-      <div className="flex flex-col sm:flex-row justify-end sm:items-center sm:justify-between w-full text-xs sm:text-sm gap-4 p-2 sm:p-4">
-        <p className="flex items-center gap-2 self-end">
+    <motion.div className="w-full h-full flex flex-col items-end gap-4 overflow-x-hidden overflow-y-auto py-4 fade-up">
+      <div className="flex flex-row sm:items-center justify-between w-full text-xs sm:text-sm md:text-lg gap-4 py-2 sm:p-4">
+        <p className="flex items-center gap-1 sm:gap-2 self-end">
           <HiDeviceMobile className="size-4" />
           <span>+91 8148133743</span>
         </p>
-        <p className="flex items-center gap-2 self-end">
+        <p className="flex items-center gap-1 sm:gap-2 self-end">
           <IoIosMail className="size-4" />
           <span>sundararajanselvarasu@gamil.com</span>
         </p>
       </div>
-      <div className="hero h-full">
-        <div className="hero-content flex-col-reverse lg:flex-row-reverse sm:w-full p-0 sm:p-6">
+      <div className="hero h-full items-start p-0">
+        <div className="hero-content flex-col-reverse lg:flex-row-reverse items-start sm:w-full h-fit sm:h-full p-0 m-0 sm:p-6">
           <CodeMock />
           <div className="w-full self-start">
-            <p className="py-3 flex items-center gap-2">
-              <motion.div
-                animate={{
-                  rotate: [0, 10, -10, 10, 0],
-                  y: [0, -5, 0],
-                }}
-                transition={{
-                  duration: 1,
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  ease: "easeInOut",
-                }}
-              >
-                "🖐️"
-              </motion.div>
-              <span>HELLO !</span>
-            </p>
             <h1 className="text-lg sm:text-4xl font-bold">
-              I'm Sundarararjan S
+              I'm MERN Stack Devloper
             </h1>
-            <p className="py-6">
+            <p className="py-6 text-pretty sm:text-sm md:text-lg">
               I am Sundararajan , MERN Stack developer from India , Tamil nadu.
               I have rich experience in web app and building and customization,
               also I am good at Next js , React Native , Python.

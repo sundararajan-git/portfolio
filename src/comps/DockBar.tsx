@@ -68,10 +68,13 @@ const DockBar = () => {
       {navTabs?.map((t) => {
         return (
           <button
-            className={`${t.active ? "dock-active" : ""}`}
+            className={`${
+              t.active ? "text-primary" : ""
+            } gap-1 hover:text-black`}
             onClick={() => navigate(t?.route)}
           >
             {t?.icon}
+            <span className="text-xs">{t?.route}</span>
           </button>
         );
       })}

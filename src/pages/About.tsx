@@ -28,22 +28,26 @@ const About = () => {
     redux,
     reactNative,
     tailwindCss,
+    mongose,
+    mongoDB,
+    jwt,
+    express,
+    nodeJs,
   ];
-  const iconsList2 = [nodeJs, express, jwt, mongoDB, mongose];
   return (
-    <section className="w-full h-full p-2 overflow-scroll flex flex-col gap-4">
+    <section className="w-full h-full sm:p-2 overflow-scroll flex flex-col gap-4 fade-up">
       <div className="flex flex-col gap-4 mt-[2%]">
         <span className="bg-base-100 font-medium flex items-center gap-3 rounded text-sm w-fit px-2 py-1">
           <RiUser4Fill /> Who am I ?
         </span>
-        <span className="text-xl font-medium mt-4">About Me</span>
+        <span className="text-xl font-medium sm:mt-4">About Me</span>
         <div className="flex flex-row gap-2">
           <img
             src="https://avatars.githubusercontent.com/u/121149600?s=400&u=246c66002edff83cb1defc693566c5185b262fb6&v=4"
             alt="Movie"
-            className="rounded-2xl w-1/4 h-fit mt-4"
+            className="rounded-2xl w-1/4 h-fit mt-4 hidden sm:block"
           />
-          <div className="flex flex-col items-start gap-4 w-full p-4 ">
+          <div className="flex flex-col items-start gap-4 w-full sm:p-4">
             <div className="p-4 bg-base-100 rounded-lg">
               <p className="text-xl font-medium">Bio</p>
               <p className="py-3 text-gray-700 text-md">
@@ -73,7 +77,7 @@ const About = () => {
               </li>
             </div>
             <div className="flex items-center mt-2 w-full">
-              <button className="btn bg-primary">
+              <button className="btn bg-primary text-white">
                 Download CV
                 <MdFileDownload size={20} />
               </button>
@@ -85,29 +89,23 @@ const About = () => {
         <span className="bg-base-100 font-medium flex items-center gap-3 rounded text-sm w-fit px-2 py-1">
           <MdWorkHistory /> What can I do?
         </span>
-        <span className="text-xl font-medium mt-4">Skils</span>
+        <span className="text-xl font-medium mt-4">Skills</span>
         <div className="flex flex-col gap-2 p-2">
           <div className="overflow-hidden whitespace-nowrap w-full ">
             <motion.div
-              className="flex space-x-4 text-2xl font-bold gap-8"
+              className="flex space-x-4 text-2xl font-bold sm:gap-8"
               animate={{ x: ["100%", "-100%"] }}
-              transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+              transition={{
+                repeat: Infinity,
+                duration: 20,
+                ease: "linear",
+              }}
             >
               {iconsList1?.map((i) => {
-                return <img src={i} className="size-20" />;
+                return <img src={i} className="size-15 sm:size-20" />;
               })}
             </motion.div>
           </div>
-
-          <motion.div
-            className="flex space-x-4 text-2xl font-bold gap-8"
-            animate={{ x: ["-100%", "100%"] }}
-            transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-          >
-            {iconsList2.map((i) => {
-              return <img src={i} className="size-20" />;
-            })}
-          </motion.div>
         </div>
       </div>
       <br />
@@ -115,8 +113,8 @@ const About = () => {
         <span className="bg-base-100 font-medium flex items-center gap-3 rounded text-sm w-fit px-2 py-1">
           <RiPoliceBadgeFill /> Achievements
         </span>
-        <span className="text-xl font-medium mt-4">Fun Facts</span>
-        <div className="grid grid-cols-1 sm:grid-cols-3  gap-4 p-4">
+        <span className="text-xl font-medium mt-4">Fun Fcats</span>
+        <div className="grid grid-cols-1 sm:grid-cols-3  gap-4 sm:p-4">
           <div className="stat bg-base-100 rounded-xl border-none">
             <div className="stat-figure text-black">
               <BsFillGridFill size={25} />

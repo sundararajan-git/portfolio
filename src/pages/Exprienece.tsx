@@ -3,25 +3,28 @@ import { GoDotFill } from "react-icons/go";
 
 const Exprienece = () => {
   return (
-    <div className="w-full h-full p-2 overflow-auto flex flex-col gap-4">
+    <div className="w-full h-full p-2 overflow-auto flex flex-col gap-4 fade-up ">
       <div className="flex flex-col gap-4 mt-[2%]">
-        <span className="bg-base-100 font-medium flex items-center gap-3 rounded text-sm w-fit px-2 py-1">
+        <span className="bg-base-100 font-medium flex items-center gap-3 rounded text-sm w-fit sm:px-2 py-1">
           <FaBook /> Education & Experience
         </span>
         <span className="text-xl font-medium mt-4">Resume</span>
-        <div className="grid grid-cols-1 gap-4 p-4">
+        <div className="grid grid-cols-1 gap-4 sm:p-4">
           {exprience.map((d, index: number) => {
             return (
               <div
-                className="bg-base-100 p-6 rounded-lg flex flex-col gap-4"
+                className="bg-base-100 p-2 sm:p-6 rounded-lg flex flex-col gap-4"
                 key={index}
               >
-                <div className="flex items-center w-full justify-between">
-                  <span className="font-medium">
-                    {d?.name} | <span>{d?.organization}</span>
-                  </span>
-                  <div className="badge badge-outline badge-info rounded-md">
-                    <span className="text-black font-medium">{d?.year}</span>
+                <div className="flex items-start sm:items-center w-full justify-between gap-2 text-nowrap">
+                  <span className="font-medium">{d?.name}</span>
+                  <div className="flex flex-col items-end sm:flex-row gap-2">
+                    <span className="badge badge-outline badge-info rounded text-black text-xs sm:text-sm font-medium">
+                      {d?.year}
+                    </span>
+                    <span className="hidden sm:flex badge bg-black text-white rounded text-xs">
+                      {d?.organization}
+                    </span>
                   </div>
                 </div>
 
@@ -29,10 +32,10 @@ const Exprienece = () => {
                   {d?.list?.map((list: string, jndex: number) => {
                     return (
                       <li
-                        className="flex items-center gap-2"
+                        className="flex items-start sm:items-center gap-2 text-pretty"
                         key={index + jndex}
                       >
-                        <GoDotFill size={10} />
+                        <GoDotFill className="size-6 sm:size-4 md:size-2" />
                         {list}
                       </li>
                     );

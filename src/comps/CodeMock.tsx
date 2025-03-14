@@ -30,8 +30,8 @@ const CodeMock = () => {
   }, [text]);
 
   return (
-    <div className="mockup-code bg-black text-white w-full min-h-[60%] py-8 p-2 ">
-      <pre className="font-sans text-primary jetbrains-mono text-xs sm:text-sm">
+    <div className="mockup-code bg-black text-white w-full min-h-[60%] py-8 p-2 self-start">
+      <pre className="font-sans text-white jetbrains-mono text-xs sm:text-sm">
         {displayText}
       </pre>
     </div>

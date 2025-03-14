@@ -2,24 +2,24 @@ import { SiWheniwork } from "react-icons/si";
 
 const Projects = () => {
   return (
-    <div className="w-full h-full p-2 overflow-auto flex flex-col gap-4">
-      <div className="flex flex-col gap-4 mt-[2%]">
+    <div className="w-full h-full sm:p-2 overflow-auto flex flex-col gap-4 fade-up">
+      <div className="flex flex-col gap-4 sm:mt-[2%]">
         <span className="bg-base-100 font-medium flex items-center gap-3 rounded text-sm w-fit px-2 py-1">
-          <SiWheniwork /> Recent Projects
+          <SiWheniwork /> Latest
         </span>
-        <span className="text-xl font-medium mt-4">Portfolio</span>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4">
+        <span className="text-xl font-medium mt-4">Projects</span>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:p-4">
           {Array.from({ length: 6 }).map((i: any) => {
             return (
-              <div className="card bg-base-100 w-full" key={i}>
+              <div className="card w-full" key={i}>
                 <figure>
                   <img
                     src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
                     alt="Shoes"
-                    className="h-[200px] rounded-lg"
+                    className="h-[200px] rounded-xl"
                   />
                 </figure>
-                <div className="card-body bg-white">
+                <div className="card-body bg-white px-0 sm:px-4">
                   <h2 className="card-title">
                     Card Title
                     <div className="badge badge-secondary rounded-4xl text-xs">
