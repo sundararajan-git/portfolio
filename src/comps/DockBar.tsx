@@ -1,15 +1,16 @@
-import { MdContacts } from "react-icons/md";
-import { RiHome6Fill, RiUser4Fill } from "react-icons/ri";
+import { MdPermContactCalendar } from "react-icons/md";
+import { RiUser4Fill } from "react-icons/ri";
 import { SiHeadlessui } from "react-icons/si";
 import { useLocation, useNavigate } from "react-router-dom";
 import { PiGearFill } from "react-icons/pi";
 import { ReactNode, useEffect, useState } from "react";
+import { TiHome } from "react-icons/ti";
 
 const tabs = [
   {
     name: "Home",
     route: "home",
-    icon: <RiHome6Fill size={18} />,
+    icon: <TiHome size={18} />,
     active: true,
   },
   {
@@ -33,7 +34,7 @@ const tabs = [
   {
     name: "Contact",
     route: "contact",
-    icon: <MdContacts size={18} />,
+    icon: <MdPermContactCalendar size={18} />,
     active: false,
   },
 ];
@@ -64,18 +65,20 @@ const DockBar = () => {
     });
   }, [location.pathname]);
   return (
-    <div className="dock dock-md gap-2">
+    <div className="dock dock-xs bg-red-6001 h-fit">
       {navTabs?.map((t) => {
         return (
-          <button
-            className={`${
-              t.active ? "text-primary" : ""
-            } gap-1 hover:text-black`}
-            onClick={() => navigate(t?.route)}
-          >
-            {t?.icon}
-            <span className="text-xs">{t?.route}</span>
-          </button>
+          <div className="flex flex-col gap-1">
+            <button
+              className={`${
+                t.active ? "bg-accent text-base-100 rounded-lg" : ""
+              } gap-1 text-md px-2 py-2 cursor-pointer`}
+              onClick={() => navigate(t?.route)}
+            >
+              {t?.icon}
+            </button>
+            <span className="text-xs">{t?.name}</span>
+          </div>
         );
       })}
     </div>

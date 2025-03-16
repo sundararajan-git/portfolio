@@ -37,10 +37,10 @@ const About = () => {
   return (
     <section className="w-full h-full sm:p-2 overflow-scroll flex flex-col gap-4 fade-up">
       <div className="flex flex-col gap-4 mt-[2%]">
-        <span className="bg-base-100 font-medium flex items-center gap-3 rounded text-sm w-fit px-2 py-1">
+        <span className="bg-base-100 font-medium flex items-center gap-3 rounded text-lg w-fit px-2 py-1">
           <RiUser4Fill /> Who am I ?
         </span>
-        <span className="text-xl font-medium sm:mt-4">About Me</span>
+        <span className="text-2xl font-medium sm:mt-4 fade-up">About Me</span>
         <div className="flex flex-row gap-2">
           <img
             src="https://avatars.githubusercontent.com/u/121149600?s=400&u=246c66002edff83cb1defc693566c5185b262fb6&v=4"
@@ -49,35 +49,35 @@ const About = () => {
           />
           <div className="flex flex-col items-start gap-4 w-full sm:p-4">
             <div className="p-4 bg-base-100 rounded-lg">
-              <p className="text-xl font-medium">Bio</p>
-              <p className="py-3 text-gray-700 text-md">
-                I am Sundararajan , MERN Stack developer from India , Tamil
-                nadu. I am "MERN Stack Developer with expertise in building
-                dynamic and scalable web applications using MongoDB, Express,
-                React, and Node.js. Passionate about clean code, performance
-                optimization, and creating seamless user experiences.”
+              <p className="text-2xl font-medium">Bio</p>
+              <p className="py-3 text-xl fade-up">
+                I am Sundararajan , from Tamil nadu . I am "MERN Stack Developer
+                with expertise in building dynamic and scalable web applications
+                using MongoDB, Express, React, and Node.js. Passionate about
+                clean code, performance optimization, and creating seamless user
+                experiences.”
               </p>
             </div>
-            <div className="p-4 bg-base-100 rounded-lg w-full flex flex-col gap-2 text-md">
-              <li className="flex items-center justify-between">
+            <div className="p-4 bg-base-100 rounded-lg w-full flex flex-col gap-2 text-lg">
+              <li className="flex items-center justify-between fade-up">
                 <span>Age</span>
                 <span>25</span>
               </li>
-              <li className="flex items-center justify-between">
+              <li className="flex items-center justify-between fade-up">
                 <span>Residence </span>
                 <span>INDIA</span>
               </li>
-              <li className="flex items-center justify-between">
+              <li className="flex items-center justify-between fade-up">
                 <span>Email</span>
                 <span>sundrarajanselvarasu@gmail.com</span>
               </li>
-              <li className="flex items-center justify-between">
+              <li className="flex items-center justify-between fade-up">
                 <span>Phone</span>
                 <span>+91 8148133743</span>
               </li>
             </div>
             <div className="flex items-center mt-2 w-full">
-              <button className="btn bg-primary text-white">
+              <button className="btn btn-accent text-lg">
                 Download CV
                 <MdFileDownload size={20} />
               </button>
@@ -86,10 +86,10 @@ const About = () => {
         </div>
       </div>
       <div className="flex flex-col gap-4">
-        <span className="bg-base-100 font-medium flex items-center gap-3 rounded text-sm w-fit px-2 py-1">
+        <span className="bg-base-100 font-medium flex items-center gap-3 rounded text-lg w-fit px-2 py-1">
           <MdWorkHistory /> What can I do?
         </span>
-        <span className="text-xl font-medium mt-4">Skills</span>
+        <span className="text-2xl font-medium mt-4 fade-up">Skills</span>
         <div className="flex flex-col gap-2 p-2">
           <div className="overflow-hidden whitespace-nowrap w-full ">
             <motion.div
@@ -110,39 +110,38 @@ const About = () => {
       </div>
       <br />
       <div className="flex flex-col gap-4">
-        <span className="bg-base-100 font-medium flex items-center gap-3 rounded text-sm w-fit px-2 py-1">
+        <span className="bg-base-100 font-medium flex items-center gap-3 rounded text-lg w-fit px-2 py-1">
           <RiPoliceBadgeFill /> Achievements
         </span>
-        <span className="text-xl font-medium mt-4">Fun Fcats</span>
-        <div className="grid grid-cols-1 sm:grid-cols-3  gap-4 sm:p-4">
+        <span className="text-2xl font-medium mt-4 fade-up">Fun Fcats</span>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:p-4">
           <div className="stat bg-base-100 rounded-xl border-none">
             <div className="stat-figure text-black">
               <BsFillGridFill size={25} />
             </div>
-            <div className="stat-title">Projects</div>
-            <div className="stat-value">12</div>
-            <div className="stat-desc">Last Year</div>
+            <div className="stat-title text-lg">Projects</div>
+            <div className="stat-value text-5xl">12</div>
+            {/* <div className="stat-desc text-lg">Last Year</div> */}
           </div>
 
           <div className="stat bg-base-100 rounded-xl">
             <div className="stat-figure text-black">
               <BsFillGridFill size={25} />
             </div>
-            <div className="stat-title">Personal Projects</div>
-            <div className="stat-value">10</div>
-            <div className="stat-desc">↗ Last Year</div>
+            <div className="stat-title text-lg">Personal Projects</div>
+            <div className="stat-value text-5xl">10</div>
+            {/* <div className="stat-desc text-lg">↗ Last Year</div> */}
           </div>
 
           <div className="stat bg-base-100 rounded-xl">
             <div className="stat-figure text-black">
               <BsFillGridFill size={25} />
             </div>
-            <div className="stat-title">Npm Package</div>
-            <div className="stat-value">1</div>
-            <div className="stat-desc">Source ↘︎</div>
+            <div className="stat-title text-lg">Npm Package</div>
+            <div className="stat-value text-5xl">1</div>
+            {/* <div className="stat-desc text-lg">Source ↘︎</div> */}
           </div>
         </div>
-        <br />
       </div>
     </section>
   );
