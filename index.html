@@ -5,7 +5,17 @@
     <link rel="icon" type="image/svg+xml" href="/portfolio/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Protfolio</title>
-    <script type="module" crossorigin src="/portfolio/assets/index-BKdYTGah.js"></script>
+    <script>
+      // Normalize URL by removing duplicate slashes
+      window.onload = function () {
+        let url = window.location.href;
+        let cleanUrl = url.replace(/([^:]\/)\/+/g, "$1"); // Remove duplicate slashes
+        if (url !== cleanUrl) {
+          window.history.replaceState(null, "", cleanUrl); // Update URL without reload
+        }
+      };
+    </script>
+    <script type="module" crossorigin src="/portfolio/assets/index-C1aNLN7v.js"></script>
     <link rel="stylesheet" crossorigin href="/portfolio/assets/index-DjonFPtb.css">
   </head>
   <body>
