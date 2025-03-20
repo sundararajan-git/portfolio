@@ -21,7 +21,7 @@ const tabs = [
   },
   {
     name: "Experience",
-    route: "exprience",
+    route: "experience",
     icon: <PiGearFill size={18} />,
     active: false,
   },
