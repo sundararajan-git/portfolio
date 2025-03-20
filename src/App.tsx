@@ -1,27 +1,28 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Provider from "./layouts/Provider";
 import About from "./pages/About";
-import Exprienece from "./pages/Exprienece";
+import Experience from "./pages/Exprienece";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import "./App.css";
 
 const App = () => {
   return (
-    <BrowserRouter basename="/portfolio/">
+    <HashRouter>
       <Routes>
         <Route element={<Provider />}>
           <Route index element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/exprience" element={<Exprienece />} />
+          <Route path="/experience" element={<Experience />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<p>404</p>} />
+          <Route path="*" element={<p>404 - Page Not Found</p>} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
+
 export default App;
