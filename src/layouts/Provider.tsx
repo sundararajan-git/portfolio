@@ -1,14 +1,23 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import SideBar from "../comps/SideBar";
 import DockBar from "../comps/DockBar";
 import ThemeSwitch from "../comps/ThemeSwitch";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import LgSideBar from "../comps/LgSideBar";
 
 export const ThemeContext = createContext<any>(null);
 
 const Provider = () => {
   const [theme, setTheme] = useState<string>("dark");
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const cleanPath = location.pathname.replace(/([^:]\/)\/+/g, "$1");
+    if (location.pathname !== cleanPath) {
+      navigate(cleanPath, { replace: true }); // Replace URL without adding to history
+    }
+  }, [location, navigate]);
   return (
     <ThemeContext.Provider
       value={{
