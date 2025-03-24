@@ -20,7 +20,7 @@ const Home = () => {
         </p>
       </div>
       <div className="hero h-full p-0">
-        <div className="hero-content flex-col-reverse lg:flex-row-reverse items-start gap-2 sm:w-full h-fit sm:h-full p-0 m-0 sm:p-6">
+        <div className="hero-content flex-col-reverse lg:flex-row-reverse items-start gap-2 sm:w-full h-full  p-0 m-0 sm:p-6">
           <CodeMock />
           <div className="w-full pt-[5%]">
             <h1 className="text-xl sm:text-4xl font-bold">
