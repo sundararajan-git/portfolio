@@ -1,76 +1,7 @@
-import { BsGithub } from "react-icons/bs";
-import { FaCodepen, FaMediumM, FaYoutube } from "react-icons/fa";
-import { MdPermContactCalendar } from "react-icons/md";
-import { RiUser4Fill } from "react-icons/ri";
-import { SiHeadlessui } from "react-icons/si";
 import { NavLink, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { PiGearFill } from "react-icons/pi";
-import { ReactNode, useEffect, useState } from "react";
-import { TiHome } from "react-icons/ti";
-
-const tabs = [
-  {
-    name: "Home",
-    route: "home",
-    icon: <TiHome size={18} />,
-    active: true,
-  },
-  {
-    name: "About",
-    route: "about",
-    icon: <RiUser4Fill size={18} />,
-    active: false,
-  },
-  {
-    name: "Experience",
-    route: "experience",
-    icon: <PiGearFill size={18} />,
-    active: false,
-  },
-  {
-    name: "Projects",
-    route: "projects",
-    icon: <SiHeadlessui size={18} />,
-    active: false,
-  },
-  {
-    name: "Contact",
-    route: "contact",
-    icon: <MdPermContactCalendar size={18} />,
-    active: false,
-  },
-];
-
-const socialLinks = [
-  {
-    name: "github",
-    link: "",
-    icon: <BsGithub size={15} />,
-  },
-  {
-    name: "codepen",
-    link: "",
-    icon: <FaCodepen size={15} />,
-  },
-  {
-    name: "youtube",
-    link: "",
-    icon: <FaYoutube size={15} />,
-  },
-  {
-    name: "medium",
-    link: "",
-    icon: <FaMediumM size={13} />,
-  },
-];
-
-type tabShape = {
-  name: string;
-  route: string;
-  icon: ReactNode;
-  active: boolean;
-};
+import { useEffect, useState } from "react";
+import { socialLinks, tabs, tabShape } from "../utils/helpData";
 
 const LgSideBar = () => {
   const location = useLocation();
@@ -132,15 +63,21 @@ const LgSideBar = () => {
 
         <div className="flex flex-col items-center gap-3">
           <div className="flex items-center gap-4 w-full justify-center pt-3">
-            {socialLinks?.map((link) => {
+            {socialLinks?.map((link, index) => {
               return (
-                <button className="btn btn-sm btn-link px-2.5 py-4 hover:btn-primary hover:bg-primary">
+                <button
+                  className="btn btn-sm btn-link px-2.5 py-4 hover:btn-primary hover:bg-primary"
+                  key={index}
+                  onClick={() => {
+                    window.open(link?.link, "_blank");
+                  }}
+                >
                   {link?.icon}
                 </button>
               );
             })}
           </div>
-          <div className="p-2 text-xs">
+          <div className="p-2 text-sm">
             <p className="text-gray-500 text-lg">@2025 Sundar</p>
           </div>
         </div>

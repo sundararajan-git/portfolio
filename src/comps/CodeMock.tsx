@@ -95,22 +95,26 @@ const highlightCode = (code: string) => {
 
 const CodeMock: React.FC = () => {
   const [displayText, setDisplayText] = useState<string>("");
+  const [showPlink, setShowPlink] = useState<boolean>(true);
 
   useEffect(() => {
     let i = 0;
     const interval = setInterval(() => {
       setDisplayText(text.slice(0, i)); // Reveal text one letter at a time
       i++;
-      if (i > text.length) clearInterval(interval);
-    }, 50);
+      if (i > text.length) {
+        setShowPlink(false);
+        clearInterval(interval);
+      }
+    }, 80);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <pre className="font-mono text-md sm:text-lg w-full min-h-[60%] bg-black text-white p-4 rounded-lg">
+    <pre className="font-mono text-md sm:text-lg w-full h-full sm:min-h-[60%] bg-black text-white p-4 rounded-lg">
       {highlightCode(displayText)}
-      <span className="animate-ping">|</span>
+      {showPlink ? <span className="animate-ping">|</span> : null}
     </pre>
   );
 };

@@ -1,50 +1,6 @@
-import { MdPermContactCalendar } from "react-icons/md";
-import { RiUser4Fill } from "react-icons/ri";
-import { SiHeadlessui } from "react-icons/si";
 import { useLocation, useNavigate } from "react-router-dom";
-import { PiGearFill } from "react-icons/pi";
-import { ReactNode, useEffect, useState } from "react";
-import { TiHome } from "react-icons/ti";
-
-const tabs = [
-  {
-    name: "Home",
-    route: "home",
-    icon: <TiHome size={18} />,
-    active: true,
-  },
-  {
-    name: "About",
-    route: "about",
-    icon: <RiUser4Fill size={18} />,
-    active: false,
-  },
-  {
-    name: "Experience",
-    route: "experience",
-    icon: <PiGearFill size={18} />,
-    active: false,
-  },
-  {
-    name: "Projects",
-    route: "projects",
-    icon: <SiHeadlessui size={18} />,
-    active: false,
-  },
-  {
-    name: "Contact",
-    route: "contact",
-    icon: <MdPermContactCalendar size={18} />,
-    active: false,
-  },
-];
-
-type tabShape = {
-  name: string;
-  route: string;
-  icon: ReactNode;
-  active: boolean;
-};
+import { useEffect, useState } from "react";
+import { tabs, tabShape } from "../utils/helpData";
 
 const DockBar = () => {
   const location = useLocation();
@@ -65,19 +21,22 @@ const DockBar = () => {
     });
   }, [location.pathname]);
   return (
-    <div className="dock dock-xs bg-red-6001 h-fit">
-      {navTabs?.map((t) => {
+    <div className="dock dock-xs h-fit">
+      {navTabs?.map((t, index) => {
         return (
-          <div className="flex flex-col gap-1">
+          <div
+            className="flex flex-col gap-1"
+            key={index}
+            onClick={() => navigate(t?.route)}
+          >
             <button
               className={`${
                 t.active ? "bg-accent text-base-100 rounded-lg" : ""
               } gap-1 text-md px-2 py-2 cursor-pointer`}
-              onClick={() => navigate(t?.route)}
             >
               {t?.icon}
             </button>
-            <span className="text-xs">{t?.name}</span>
+            <span className="text-sm">{t?.name}</span>
           </div>
         );
       })}

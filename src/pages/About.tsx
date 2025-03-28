@@ -1,39 +1,32 @@
 import { BsFillGridFill } from "react-icons/bs";
 import { MdFileDownload, MdWorkHistory } from "react-icons/md";
 import { RiPoliceBadgeFill, RiUser4Fill } from "react-icons/ri";
-import { motion } from "framer-motion";
-import html from "../assets/html.svg";
-import jquery from "../assets/Jquery.svg";
-import css from "../assets/css.svg";
-import express from "../assets/express.svg";
-import js from "../assets/js.svg";
-import jwt from "../assets/jwt.svg";
-import mongoDB from "../assets/mongoDB.svg";
-import mongose from "../assets/mongose.svg";
-import nodeJs from "../assets/nodeJs.svg";
-import reactJs from "../assets/react.svg";
-import reactNative from "../assets/reactNative.svg";
-import redux from "../assets/redux.svg";
-import tailwindCss from "../assets/tailwindCss.svg";
-import typeScript from "../assets/typeScript.svg";
+import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 const About = () => {
-  const iconsList1 = [
-    html,
-    css,
-    jquery,
-    js,
-    typeScript,
-    reactJs,
-    redux,
-    reactNative,
-    tailwindCss,
-    mongose,
-    mongoDB,
-    jwt,
-    express,
-    nodeJs,
-  ];
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  const count = useMotionValue(0);
+  const smoothCount = useSpring(count, { stiffness: 20, damping: 35 });
+
+  const [displayCount, setDisplayCount] = useState(0);
+  const [_, setPrevCount] = useState(0); // Store previous number
+
+  useEffect(() => {
+    if (isInView) {
+      count.set(10); // Start animation when in view
+
+      const unsubscribe = smoothCount.on("change", (latest) => {
+        setPrevCount(displayCount); // Store previous number
+        setDisplayCount(Math.round(latest));
+      });
+
+      return () => unsubscribe();
+    }
+  }, [isInView]);
+
   return (
     <section className="w-full h-full sm:p-2 overflow-scroll flex flex-col gap-4 fade-up">
       <div className="flex flex-col gap-4 mt-[2%]">
@@ -91,21 +84,7 @@ const About = () => {
         </span>
         <span className="text-2xl font-medium mt-4 fade-up">Skills</span>
         <div className="flex flex-col gap-2 p-2">
-          <div className="overflow-hidden whitespace-nowrap w-full ">
-            <motion.div
-              className="flex space-x-4 text-2xl font-bold sm:gap-8"
-              animate={{ x: ["100%", "-100%"] }}
-              transition={{
-                repeat: Infinity,
-                duration: 20,
-                ease: "linear",
-              }}
-            >
-              {iconsList1?.map((i) => {
-                return <img src={i} className="size-15 sm:size-20" />;
-              })}
-            </motion.div>
-          </div>
+          <SkillBadges />
         </div>
       </div>
       <br />
@@ -115,35 +94,196 @@ const About = () => {
         </span>
         <span className="text-2xl font-medium mt-4 fade-up">Fun Fcats</span>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:p-4">
-          <div className="stat bg-base-100 rounded-xl border-none">
-            <div className="stat-figure text-black">
-              <BsFillGridFill size={25} />
-            </div>
-            <div className="stat-title text-lg">Projects</div>
-            <div className="stat-value text-5xl">12</div>
-            {/* <div className="stat-desc text-lg">Last Year</div> */}
-          </div>
+          <AnimatedStat icon={BsFillGridFill} title="Projects" endValue={12} />
 
-          <div className="stat bg-base-100 rounded-xl">
-            <div className="stat-figure text-black">
-              <BsFillGridFill size={25} />
-            </div>
-            <div className="stat-title text-lg">Personal Projects</div>
-            <div className="stat-value text-5xl">10</div>
-            {/* <div className="stat-desc text-lg">↗ Last Year</div> */}
-          </div>
+          <AnimatedStat
+            icon={BsFillGridFill}
+            title="Personal Projects"
+            endValue={10}
+          />
 
-          <div className="stat bg-base-100 rounded-xl">
-            <div className="stat-figure text-black">
-              <BsFillGridFill size={25} />
-            </div>
-            <div className="stat-title text-lg">Npm Package</div>
-            <div className="stat-value text-5xl">1</div>
-            {/* <div className="stat-desc text-lg">Source ↘︎</div> */}
-          </div>
+          <AnimatedStat
+            icon={BsFillGridFill}
+            title="Npm Package"
+            endValue={1}
+          />
         </div>
       </div>
     </section>
   );
 };
 export default About;
+
+const AnimatedStat = ({
+  icon: Icon,
+  title,
+  endValue,
+}: {
+  icon: any;
+  title: string;
+  endValue: number;
+}) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  const count = useMotionValue(0);
+  const smoothCount = useSpring(count, {
+    stiffness: 20,
+    damping: 15,
+  });
+
+  const [displayCount, setDisplayCount] = useState(0);
+  const [prevCount, setPrevCount] = useState(0);
+
+  useEffect(() => {
+    if (isInView) {
+      count.set(endValue);
+
+      const unsubscribe = smoothCount.on("change", (latest) => {
+        setPrevCount(displayCount);
+        setDisplayCount(Math.round(latest));
+      });
+
+      return () => unsubscribe();
+    }
+  }, [isInView]);
+
+  return (
+    <div ref={ref} className="stat bg-base-100 rounded-xl">
+      <div className="stat-figure mt-2 text-black">
+        <Icon size={25} />
+      </div>
+      <div className="stat-title text-lg">{title}</div>
+      {/* Rolling Number Animation */}
+      <div className="relative h-16 flex items-start justify-start overflow-hidden">
+        {/* Old number moving up */}
+        <motion.div
+          key={prevCount}
+          initial={{ y: 0, opacity: 1 }}
+          animate={{ y: -20, opacity: 0 }}
+          exit={{ y: -20, opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="absolute text-5xl font-bold"
+        >
+          {prevCount}
+        </motion.div>
+
+        {/* New number coming from below */}
+        <motion.div
+          key={displayCount}
+          initial={{ y: 20, opacity: 1 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.3 }}
+          className="absolute text-5xl font-bold"
+        >
+          {displayCount}
+        </motion.div>
+      </div>
+      <div className="stat-desc text-sm">Last Year</div>
+    </div>
+  );
+};
+
+import {
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaReact,
+  FaNodeJs,
+  FaPython,
+  FaGitAlt,
+  FaFigma,
+  FaBootstrap,
+} from "react-icons/fa";
+import {
+  SiJquery,
+  SiRedux,
+  SiTailwindcss,
+  SiChakraui,
+  SiShadcnui,
+  SiExpress,
+  SiJsonwebtokens,
+  SiMongodb,
+  SiFirebase,
+  SiMongoose,
+  SiVercel,
+  SiGithub,
+  SiMui,
+  SiMuller,
+} from "react-icons/si";
+import { VscCode } from "react-icons/vsc";
+
+const skills = [
+  {
+    category: "Frontend",
+    items: [
+      { name: "HTML", icon: <FaHtml5 className="text-orange-500" /> },
+      { name: "CSS", icon: <FaCss3Alt className="text-blue-500" /> },
+      { name: "JavaScript", icon: <FaJs className="text-yellow-500" /> },
+      { name: "jQuery", icon: <SiJquery className="text-blue-400" /> },
+      { name: "React.js", icon: <FaReact className="text-blue-500" /> },
+      { name: "Redux", icon: <SiRedux className="text-purple-500" /> },
+      {
+        name: "Tailwind CSS",
+        icon: <SiTailwindcss className="text-teal-500" />,
+      },
+      { name: "Chakra UI", icon: <SiChakraui className="text-green-500" /> },
+      { name: "ShadCN", icon: <SiShadcnui className="text-gray-500" /> },
+      { name: "Bootstrap", icon: <FaBootstrap className="text-indigo-500" /> },
+      { name: "Material UI", icon: <SiMui className="text-blue-600" /> },
+    ],
+  },
+  {
+    category: "Backend",
+    items: [
+      { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
+      { name: "Express.js", icon: <SiExpress className="text-gray-700" /> },
+      { name: "JWT", icon: <SiJsonwebtokens className="text-yellow-600" /> },
+      { name: "Mongoose", icon: <SiMongoose className="text-red-500" /> },
+      { name: "Multer", icon: <SiMuller className="text-gray-500" /> },
+      { name: "Python", icon: <FaPython className="text-blue-400" /> },
+    ],
+  },
+  {
+    category: "Database",
+    items: [
+      { name: "MongoDB", icon: <SiMongodb className="text-green-700" /> },
+      { name: "Firebase", icon: <SiFirebase className="text-yellow-500" /> },
+    ],
+  },
+  {
+    category: "Tools",
+    items: [
+      {
+        name: "VS Code",
+        icon: <VscCode className="text-blue-500" />,
+      },
+      { name: "GitHub", icon: <SiGithub className="text-black" /> },
+      { name: "Figma", icon: <FaFigma className="text-pink-500" /> },
+      { name: "Vercel", icon: <SiVercel className="text-black" /> },
+      { name: "Git", icon: <FaGitAlt className="text-red-500" /> },
+    ],
+  },
+];
+
+const SkillBadges = () => {
+  return (
+    <div className="sm:p-6 bg-base-100 rounded-lg sm:shadow-md">
+      {skills.map((skillCategory, index) => (
+        <div key={index} className="mb-4">
+          <h3 className="text-xl font-medium mb-2">{skillCategory.category}</h3>
+          <div className="flex flex-wrap gap-3">
+            {skillCategory.items.map((skill, idx) => (
+              <div
+                key={idx}
+                className="badge badge-ghost flex items-center gap-2 p-3 text-lg hover:scale-105 transition-all cursor-pointer rounded-md"
+              >
+                {skill.icon} {skill.name}
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};

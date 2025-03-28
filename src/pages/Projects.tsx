@@ -22,7 +22,7 @@ const Projects = () => {
                 <div className="card-body bg-base px-0 sm:px-4">
                   <h2 className="card-title text-2xl fade-up">
                     Card Title
-                    <div className="badge badge-secondary rounded-4xl text-xs">
+                    <div className="badge badge-secondary rounded-4xl text-sm">
                       NEW
                     </div>
                   </h2>

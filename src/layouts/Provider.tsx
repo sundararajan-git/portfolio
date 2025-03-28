@@ -8,7 +8,7 @@ import LgSideBar from "../comps/LgSideBar";
 export const ThemeContext = createContext<any>(null);
 
 const Provider = () => {
-  const [theme, setTheme] = useState<string>("dark");
+  const [theme, setTheme] = useState<string>("light");
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -27,7 +27,7 @@ const Provider = () => {
     >
       <div
         data-theme={theme}
-        className="h-screen flex flex-col-reverse sm:flex-row overflow-hidden p-3 sm:p-1"
+        className="h-[100vh] flex flex-col-reverse justify-between sm:flex-row overflow-hidden p-3 sm:p-1"
       >
         <div className="block sm:hidden w-full">
           <DockBar />
@@ -41,7 +41,7 @@ const Provider = () => {
           <LgSideBar />
         </div>
 
-        <div className="flex flex-col h-full overflow-hidden w-full justify-between gap-4 sm:gap-2">
+        <div className="flex flex-col h-[90%] sm:h-full overflow-hidden w-full justify-between items-start gap-4 sm:gap-2">
           <ThemeSwitch />
           <Outlet />
         </div>
