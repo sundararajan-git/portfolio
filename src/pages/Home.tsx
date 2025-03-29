@@ -25,7 +25,7 @@ const Home = () => {
             <h1 className="text-xl sm:text-4xl font-bold">
               I'm MERN Stack Devloper
             </h1>
-            <p className="sm:py-6 text-justify text-lg md:text-2xl fade-up">
+            <p className="sm:py-6 text-justify text-lg md:text-xl fade-up">
               I am Sundararajan , MERN Stack developer from India , Tamil nadu.
               I have rich experience in web app and building and customization,
               also I am good at Next js , React Native , Python.

@@ -11,39 +11,33 @@ const Contact = () => {
           <RiChatSmile3Fill /> Get In touch
         </span>
         <span className="text-2xl font-medium mt-4">Contact</span>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 p-1 sm:p-0">
           {contactDetails.map((i) => {
             return (
-              <div className="px-2 py-3 bg-base-100 flex items-start sm:items-center w-full gap-2 sm:gap-4 rounded-xl fade-up">
-                {i.icon}
+              <div className="px-4 py-3 bg-base-100 shadow-md flex items-start sm:items-center w-full gap-2 sm:gap-4 rounded-lg fade-up">
                 <div className="flex flex-col sm:gap-1 p-0">
-                  <p className="sm:text-md">{i?.name}</p>
+                  <p className="sm:text-md flex flex-row gap-2 items-center">
+                    {i.icon}
+                    {i?.name}
+                  </p>
                   <p className="sm:text-lg">{i?.value}</p>
                 </div>
               </div>
             );
           })}
         </div>
-        <span className="text-2xl font-medium mt-4">Send Msg</span>
+        <span className="text-2xl font-medium mt-4">Send Mail</span>
         <div className="flex flex-col items-center gap-2 w-full justify-between p-2 sm:p-4 fade-up">
-          <div className="flex flex-col sm:flex-row w-full justify-between gap-4">
-            <fieldset className="fieldset w-full">
-              <legend className="fieldset-legend font-normal text-lg">
-                Your Name
-              </legend>
-              <input type="text" className="input" placeholder="Your Name" />
-            </fieldset>
-            <fieldset className="fieldset w-full">
-              <legend className="fieldset-legend font-normal text-lg">
-                Email Address
-              </legend>
-              <input
-                type="email"
-                className="input w-full"
-                placeholder="Email address"
-              />
-            </fieldset>
-          </div>
+          <fieldset className="fieldset w-full">
+            <legend className="fieldset-legend font-normal text-lg">
+              Email Address
+            </legend>
+            <input
+              type="email"
+              className="input w-full"
+              placeholder="Email address"
+            />
+          </fieldset>
           <fieldset className="fieldset w-full">
             <legend className="fieldset-legend font-normal text-lg">
               Subject
@@ -61,7 +55,9 @@ const Contact = () => {
           </fieldset>
         </div>
         <div className="flex justify-end pe-6 text-xl">
-          <button className="btn btn-primary round-lg px-6">Send</button>
+          <button className="btn btn-primary round-lg px-6 py-1.5 h-fit">
+            Send
+          </button>
         </div>
       </div>
     </div>
@@ -73,16 +69,16 @@ const contactDetails = [
   {
     name: "Phone",
     value: "+91 8148133743",
-    icon: <HiDeviceMobile className="size-8 sm:size-9" />,
+    icon: <HiDeviceMobile className="text-blue-600 size-4" />,
   },
   {
     name: "Email",
     value: "sundararajanselvarasu@gmail.com",
-    icon: <MdEmail className="size-8 sm:size-9" />,
+    icon: <MdEmail className=" text-red-600 size-4" />,
   },
   {
     name: "Location",
     value: "Tamil Nadu , India",
-    icon: <TiLocation className="size-8 sm:size-9" />,
+    icon: <TiLocation className="text-green-600 size-4" />,
   },
 ];

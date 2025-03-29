@@ -30,7 +30,7 @@ export const tabs = [
   },
   {
     name: "Experience",
-    route: "exprience",
+    route: "experience",
     icon: <PiGearFill size={18} />,
     active: false,
   },
@@ -70,3 +70,39 @@ export const socialLinks = [
     icon: <FaMediumM size={13} />,
   },
 ];
+
+export const projectTree = {
+  product_store: {
+    name: "Product Store - MERN Stack Application",
+    videoUrl: "https://www.youtube.com/embed/2r5h9e1b4xk",
+    introduction:
+      "Product Store is a full-stack e-commerce application built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. This platform allows users to browse products, add them to a cart, and complete their purchases seamlessly.",
+    techStack: [
+      "Frontend: React.js, Redux (State Management), Tailwind CSS",
+      "Backend: Node.js, Express.js, MongoDB",
+      "Authentication: JWT (JSON Web Token)",
+      "Database Management: Mongoose",
+      "File Uploads: Multer",
+      "Deployment: Render.com (backend) and github (frontend)",
+    ],
+    working: [
+      "User Authentication – Secure login and registration using JWT authentication.",
+      "Product Listing – Products are fetched from MongoDB and displayed in an interactive UI.",
+      "Cart Management – Users can add/remove items in their cart using Redux state management.",
+      "Checkout Process – Order placement and backend processing for orders.",
+      "Admin Dashboard – Admins can manage products and orders.",
+    ],
+    screeShots: [
+      "imaqge1",
+      "imaqge2",
+      "imaqge3",
+      "imaqge4",
+      "imaqge5",
+      "imaqge6",
+    ],
+    links: [
+      "Github Link -  https://github.com",
+      "Live Link -  https://github.com",
+    ],
+  },
+};

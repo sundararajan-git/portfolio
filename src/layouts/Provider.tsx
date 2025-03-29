@@ -14,6 +14,7 @@ const Provider = () => {
 
   useEffect(() => {
     const cleanPath = location.pathname.replace(/([^:]\/)\/+/g, "$1");
+    console.log(cleanPath);
     if (location.pathname !== cleanPath) {
       navigate(cleanPath, { replace: true }); // Replace URL without adding to history
     }

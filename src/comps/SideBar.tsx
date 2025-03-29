@@ -14,6 +14,8 @@ const SideBar = () => {
       const clone = prev.map((i) => {
         if (i.route === path) {
           return { ...i, active: true };
+        } else if (i.route === "home" && path === "") {
+          return { ...i, active: true };
         } else {
           return { ...i, active: false };
         }

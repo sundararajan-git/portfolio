@@ -8,21 +8,23 @@ const Exprienece = () => {
         <span className="bg-base-100 font-medium flex items-center gap-3 rounded text-lg w-fit sm:px-2 py-1">
           <FaBook /> Education & Experience
         </span>
-        <span className="text-2xl font-medium mt-4 fade-up">Resume</span>
         <div className="grid grid-cols-1 gap-4 sm:p-4">
           {exprience.map((d, index: number) => {
             return (
               <div
-                className="bg-base-100 p-2 sm:p-6 rounded-lg flex flex-col gap-4"
+                className="bg-base-100 sm:p-6 rounded-lg flex flex-col gap-4"
                 key={index}
               >
-                <div className="flex items-start sm:items-center w-full justify-between gap-2 text-nowrap">
+                <div className="flex flex-col  sm:flex-row items-start sm:items-center w-full justify-between gap-2 text-nowrap">
                   <span className="font-medium text-xl fade-up">{d?.name}</span>
-                  <div className="flex flex-col items-end sm:flex-row gap-2">
-                    <span className="badge badge-outline badge-success rounded text-black text-sm sm:text-lg font-medium">
+                  <div className="flex w-full sm:w-fit sm:items-end sm:flex-row gap-2">
+                    <span
+                      className="badge badge-outline badge-success
+                      rounded text-sm sm:text-lg font-medium"
+                    >
                       {d?.year}
                     </span>
-                    <span className="hidden sm:flex badge badge-outline badge-warning text-white rounded text-lg">
+                    <span className="flex badge badge-outline badge-error rounded text-lg">
                       {d?.organization}
                     </span>
                   </div>
@@ -32,10 +34,10 @@ const Exprienece = () => {
                   {d?.list?.map((list: string, jndex: number) => {
                     return (
                       <li
-                        className="flex gap-2 text-pretty text-xl"
+                        className="flex gap-2 text-justify text-xl"
                         key={index + jndex}
                       >
-                        <GoDotFill className="size-6 sm:size-4 md:size-2 mt-3" />
+                        <GoDotFill className="size-6 sm:size-4 md:size-2 mt-1 sm:mt-3" />
                         {list}
                       </li>
                     );
