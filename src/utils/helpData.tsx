@@ -106,3 +106,34 @@ export const projectTree = {
     ],
   },
 };
+
+
+
+      /* 
+      
+
+      TASK MODULE
+A core module within our internal web application, used company-wide to delegate tasks to subordinates efficiently. It streamlines work scheduling, tracks employee productivity, and identifies delays in task execution.
+TICKET SYSTEM
+An internal ticketing system integrated into our web app, enabling employees from any department to raise and manage tickets across the organization. This system was developed to minimize reliance on external email platforms like Gmail for internal communications.
+WORK SCHEDULE
+A specialized tool within our web platform designed for the Engineering department and the Board of Directors. It facilitates the scheduling, monitoring, and management of construction activities at various project sites.
+MASTER CHECKLIST
+This module supports the Engineering department and the Board of Directors by providing a centralized platform to oversee and manage pre-construction activities, ensuring readiness before project execution.
+MRS (Material Requisition System)
+A cross-departmental tool used by Engineering, Purchase, Stores, Accounts, and Board of Directors. It manages material requisitions, facilitates approval workflows, and streamlines purchase order generation within the constraints of project budgets.
+MOM (Minutes of Meeting)
+A collaborative platform for recording, sharing, and tracking action points discussed during departmental and team meetings. It helps ensure follow-ups and completion of assigned tasks across the organization.
+HRMS (Human Resource Management System)
+An HR request system used by department managers to initiate hiring requests. It automates workflows requiring HOD approvals and streamlines communication with the HR department.
+CHECKLIST MODULE
+A productivity tool that enables employees to create, manage, and share work-specific checklists under categorized titles, promoting better task organization and accountability.
+SITE CONTRACTS
+A contract management system used by the Engineering department to issue and manage work orders with vendors, ensuring contractual obligations are met efficiently.
+CRM (Customer Relationship Management)
+An in-development module dedicated to enhancing customer relationship management processes for the CRM department, aimed at streamlining client interactions and improving customer service delivery.
+
+      
+      
+      
+      */
