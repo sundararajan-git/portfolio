@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { socialLinks, tabs, tabShape } from "../utils/helpData";
 import { FaBars } from "react-icons/fa";
+import user from "../../public/user.png";
 
 const SideBar = () => {
   const location = useLocation();
@@ -47,7 +48,7 @@ const SideBar = () => {
             <div className="flex flex-col items-center">
               <div className="avatar p-1">
                 <div className="w-16  rounded-full">
-                  <img src="https://avatars.githubusercontent.com/u/121149600?s=400&u=246c66002edff83cb1defc693566c5185b262fb6&v=4" />
+                  <img src={user} />
                 </div>
               </div>
               <div className="flex flex-col gap-2 w-full items-center">

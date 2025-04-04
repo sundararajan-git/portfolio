@@ -112,7 +112,7 @@ const CodeMock: React.FC = () => {
   }, []);
 
   return (
-    <pre className="font-mono text-md sm:text-lg w-full h-full bg-black text-white p-4 rounded-lg">
+    <pre className="font-mono text-md sm:text-lg w-full h-[55vh] sm:h-full bg-black text-white p-4 rounded-lg">
       {highlightCode(displayText)}
       {showPlink ? <span className="animate-ping">|</span> : null}
     </pre>

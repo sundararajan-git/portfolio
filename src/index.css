@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui" {
   themes: light, dark;
+  darktheme: "class";
 }
 .menu {
   @apply w-full rounded gap-5 px-6 p-0;

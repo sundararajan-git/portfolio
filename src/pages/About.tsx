@@ -3,6 +3,7 @@ import { MdFileDownload, MdWorkHistory } from "react-icons/md";
 import { RiPoliceBadgeFill, RiUser4Fill } from "react-icons/ri";
 import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import user from "../../public/user.png";
 
 const About = () => {
   const ref = useRef(null);
@@ -30,20 +31,20 @@ const About = () => {
   return (
     <section className="w-full h-full sm:p-2 overflow-scroll flex flex-col gap-4 fade-up">
       <div className="flex flex-col gap-4 mt-[2%]">
-        <span className="bg-base-100 font-medium flex items-center gap-3 rounded text-lg w-fit px-2 py-1">
+        <span className="bg-base-100 font-medium hidden sm:flex items-center gap-3 rounded text-lg w-fit">
           <RiUser4Fill /> Who am I ?
         </span>
         <span className="text-2xl font-medium sm:mt-4 fade-up">About Me</span>
         <div className="flex flex-row gap-2">
           <img
-            src="https://avatars.githubusercontent.com/u/121149600?s=400&u=246c66002edff83cb1defc693566c5185b262fb6&v=4"
+            src={user}
             alt="Movie"
             className="rounded-2xl w-1/4 h-fit mt-4 hidden sm:block"
           />
-          <div className="flex flex-col items-start gap-4 w-full sm:p-4">
-            <div className="p-4 bg-base-100 rounded-lg">
+          <div className="flex flex-col items-start gap-4 w-full sm:p-4 ">
+            <div className="sm:p-4 bg-base-100 rounded-lg">
               <p className="text-2xl font-medium">Bio</p>
-              <p className="py-3 text-xl fade-up">
+              <p className="py-3 text-xl fade-up text-justify">
                 I am Sundararajan , from Tamil nadu . I am "MERN Stack Developer
                 with expertise in building dynamic and scalable web applications
                 using MongoDB, Express, React, and Node.js. Passionate about
@@ -51,7 +52,7 @@ const About = () => {
                 experiences.”
               </p>
             </div>
-            <div className="p-4 bg-base-100 rounded-lg w-full flex flex-col gap-2 text-lg">
+            <div className="sm:p-4 bg-base-100 rounded-lg w-full flex flex-col gap-2 text-lg">
               <li className="flex items-center justify-between fade-up">
                 <span>Age</span>
                 <span>25</span>
@@ -79,21 +80,20 @@ const About = () => {
         </div>
       </div>
       <div className="flex flex-col gap-4">
-        <span className="bg-base-100 font-medium flex items-center gap-3 rounded text-lg w-fit px-2 py-1">
+        <span className="bg-base-100 font-medium hidden sm:flex items-center gap-3 rounded text-lg w-fit">
           <MdWorkHistory /> What can I do?
         </span>
         <span className="text-2xl font-medium mt-4 fade-up">Skills</span>
-        <div className="flex flex-col gap-2 p-2">
+        <div className="flex flex-col gap-2 sm:p-2">
           <SkillBadges />
         </div>
       </div>
-      <br />
       <div className="flex flex-col gap-4">
-        <span className="bg-base-100 font-medium flex items-center gap-3 rounded text-lg w-fit px-2 py-1">
+        <span className="bg-base-100 font-medium hidden sm:flex items-center gap-3 rounded text-lg w-fit">
           <RiPoliceBadgeFill /> Achievements
         </span>
         <span className="text-2xl font-medium mt-4 fade-up">Fun Fcats</span>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:p-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
           <AnimatedStat icon={BsFillGridFill} title="Projects" endValue={12} />
 
           <AnimatedStat
@@ -149,7 +149,10 @@ const AnimatedStat = ({
   }, [isInView]);
 
   return (
-    <div ref={ref} className="stat bg-base-100 rounded-xl">
+    <div
+      ref={ref}
+      className="stat bg-base-100 rounded-xl p-1 sm:px-4 bg-red1-500"
+    >
       <div className="stat-figure mt-2 text-black">
         <Icon size={25} />
       </div>
@@ -209,9 +212,9 @@ import {
   SiVercel,
   SiGithub,
   SiMui,
-  SiMuller,
 } from "react-icons/si";
-import { VscCode } from "react-icons/vsc";
+import { VscVscode } from "react-icons/vsc";
+import { IoMdCloudUpload } from "react-icons/io";
 
 const skills = [
   {
@@ -237,10 +240,13 @@ const skills = [
     category: "Backend",
     items: [
       { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
-      { name: "Express.js", icon: <SiExpress className="text-gray-700" /> },
+      {
+        name: "Express.js",
+        icon: <SiExpress className="text-gray-700 dark:text-white" />,
+      },
       { name: "JWT", icon: <SiJsonwebtokens className="text-yellow-600" /> },
       { name: "Mongoose", icon: <SiMongoose className="text-red-500" /> },
-      { name: "Multer", icon: <SiMuller className="text-gray-500" /> },
+      { name: "Multer", icon: <IoMdCloudUpload className="text-gray-500" /> },
       { name: "Python", icon: <FaPython className="text-blue-400" /> },
     ],
   },
@@ -256,11 +262,17 @@ const skills = [
     items: [
       {
         name: "VS Code",
-        icon: <VscCode className="text-blue-500" />,
+        icon: <VscVscode className="text-blue-500" />,
       },
-      { name: "GitHub", icon: <SiGithub className="text-black" /> },
+      {
+        name: "GitHub",
+        icon: <SiGithub className="text-primary" />,
+      },
       { name: "Figma", icon: <FaFigma className="text-pink-500" /> },
-      { name: "Vercel", icon: <SiVercel className="text-black" /> },
+      {
+        name: "Vercel",
+        icon: <SiVercel className="text-primary" />,
+      },
       { name: "Git", icon: <FaGitAlt className="text-red-500" /> },
     ],
   },
@@ -268,7 +280,7 @@ const skills = [
 
 const SkillBadges = () => {
   return (
-    <div className="sm:p-6 bg-base-100 rounded-lg sm:shadow-md">
+    <div className="p-0 sm:p-6 bg-base-100 rounded-lg sm:shadow-md ">
       {skills.map((skillCategory, index) => (
         <div key={index} className="mb-4">
           <h3 className="text-xl font-medium mb-2">{skillCategory.category}</h3>

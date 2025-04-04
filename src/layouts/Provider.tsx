@@ -8,7 +8,7 @@ import LgSideBar from "../comps/LgSideBar";
 export const ThemeContext = createContext<any>(null);
 
 const Provider = () => {
-  const [theme, setTheme] = useState<string>("light");
+  const [theme, setTheme] = useState<string>("dark");
   const location = useLocation();
   const navigate = useNavigate();
 
