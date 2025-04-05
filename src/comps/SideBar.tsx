@@ -8,6 +8,7 @@ import user from "../../public/user.png";
 const SideBar = () => {
   const location = useLocation();
   const [navTabs, setNavTabs] = useState<tabShape[]>(tabs);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   useEffect(() => {
     const path = location.pathname.split("/")[1];
@@ -23,20 +24,27 @@ const SideBar = () => {
       });
       return clone;
     });
+    setIsDrawerOpen(false);
   }, [location.pathname]);
   return (
-    <div className="drawer w-full z-50">
-      <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+    <div className="drawer w-full">
+      <input
+        type="checkbox"
+        className="drawer-toggle"
+        checked={isDrawerOpen}
+        readOnly
+      />
       <div className="drawer-content p-2 w-full">
-        <label htmlFor="my-drawer" className="drawer-button">
+        <label className="drawer-button" onClick={() => setIsDrawerOpen(true)}>
           <FaBars className="size-5 cursor-pointer" />
         </label>
       </div>
-      <div className="drawer-side bg-base-100">
+
+      <div className="drawer-side z-50 bg-base-100">
         <label
-          htmlFor="my-drawer"
           aria-label="close sidebar"
           className="drawer-overlay"
+          onClick={() => setIsDrawerOpen(false)}
         ></label>
         <motion.div
           initial={{ x: -100 }}

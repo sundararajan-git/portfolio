@@ -3,6 +3,7 @@ import { IoIosMail } from "react-icons/io";
 import { MdOutlineArrowCircleRight } from "react-icons/md";
 import CodeMock from "../comps/CodeMock";
 import { useNavigate } from "react-router-dom";
+import { socialLinks } from "../utils/helpData";
 
 const Home = () => {
   const naviagte = useNavigate();
@@ -47,6 +48,26 @@ const Home = () => {
         </div>
       </div>
       <br />
+      <div className="flex sm:hidden flex-col items-center gap-1 w-full">
+        <div className="flex items-center gap-4 w-full justify-center pt-3">
+          {socialLinks?.map((link, index) => {
+            return (
+              <button
+                className="btn btn-sm btn-link px-2.5 py-4 hover:btn-primary hover:bg-primary"
+                key={index}
+                onClick={() => {
+                  window.open(link?.link, "_blank");
+                }}
+              >
+                {link?.icon}
+              </button>
+            );
+          })}
+        </div>
+        <div className="p-2 text-sm">
+          <p className="text-gray-500 text-lg">@2025 Sundar</p>
+        </div>
+      </div>
     </div>
   );
 };

@@ -14,7 +14,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 p-1 sm:p-0">
           {contactDetails.map((i) => {
             return (
-              <div className="px-2 sm:px-4 py-3 bg-base-100 shadow-none flex items-start sm:items-center w-full gap-2 sm:gap-4 rounded-lg fade-up ">
+              <div className="sm:px-4 py-3 bg-base-100 shadow-none flex items-start sm:items-center w-full gap-2 sm:gap-4 rounded-lg fade-up ">
                 <div className="flex flex-col sm:gap-1 p-0">
                   <p className="sm:text-md flex flex-row gap-2 items-center">
                     {i.icon}
@@ -34,7 +34,7 @@ const Contact = () => {
             </legend>
             <input
               type="email"
-              className="w-full border rounded border-gray-400  outline-0 text-lg p-1"
+              className="w-full border-b border-gray-400  outline-0 text-lg p-1"
               placeholder="Email address"
             />
           </fieldset>
@@ -44,7 +44,7 @@ const Contact = () => {
             </legend>
             <input
               type="text"
-              className="w-full border rounded border-b border-gray-400  outline-0 text-lg p-1"
+              className="w-full border-b border-gray-400  outline-0 text-lg p-1 "
               placeholder="Subject"
             />
           </fieldset>
@@ -53,13 +53,13 @@ const Contact = () => {
               Your Msg
             </legend>
             <textarea
-              className="w-full border rounded border-b border-gray-400  outline-0 text-lg p-1"
+              className="w-full border-b border-gray-400  outline-0 text-lg p-1"
               rows={1}
               placeholder="Enter your Msg .. "
             ></textarea>
           </fieldset>
         </div>
-        <div className="flex justify-end pe-6 text-xl">
+        <div className="flex justify-end sm:pe-6 text-xl">
           <button className="btn btn-primary round-lg px-6 py-1.5 h-fit">
             Send
           </button>

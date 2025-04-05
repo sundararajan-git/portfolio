@@ -242,7 +242,7 @@ const skills = [
       { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
       {
         name: "Express.js",
-        icon: <SiExpress className="text-gray-700 dark:text-white" />,
+        icon: <SiExpress className="text-primary" />,
       },
       { name: "JWT", icon: <SiJsonwebtokens className="text-yellow-600" /> },
       { name: "Mongoose", icon: <SiMongoose className="text-red-500" /> },
