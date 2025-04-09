@@ -3,7 +3,8 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { socialLinks, tabs, tabShape } from "../utils/helpData";
 import { FaBars } from "react-icons/fa";
-import user from "../../public/user.png";
+// import user from "../../public/user.png";
+import user from "../assets/avatar.jpg";
 
 const SideBar = () => {
   const location = useLocation();

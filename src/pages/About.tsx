@@ -3,7 +3,8 @@ import { MdFileDownload, MdWorkHistory } from "react-icons/md";
 import { RiPoliceBadgeFill, RiUser4Fill } from "react-icons/ri";
 import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import user from "../../public/user.png";
+// import user from "../../public/user.png";
+import user from "../assets/avatar.jpg";
 
 const About = () => {
   const ref = useRef(null);
