@@ -34,7 +34,7 @@ const Contact = () => {
             </legend>
             <input
               type="email"
-              className="w-full border-b border-gray-400  outline-0 text-lg p-1"
+              className="w-full border rounded border-gray-400  outline-0 text-lg p-1 ps-2"
               placeholder="Email address"
             />
           </fieldset>
@@ -44,7 +44,7 @@ const Contact = () => {
             </legend>
             <input
               type="text"
-              className="w-full border-b border-gray-400  outline-0 text-lg p-1 "
+              className="w-full border rounded border-gray-400  outline-0 text-lg p-1 ps-2 "
               placeholder="Subject"
             />
           </fieldset>
@@ -52,11 +52,11 @@ const Contact = () => {
             <legend className="fieldset-legend font-normal text-lg">
               Your Msg
             </legend>
-            <textarea
-              className="w-full border-b border-gray-400  outline-0 text-lg p-1"
-              rows={1}
+            <input
+              type="text"
+              className="w-full border rounded border-gray-400  outline-0 text-lg p-1 ps-2 "
               placeholder="Enter your Msg .. "
-            ></textarea>
+            />
           </fieldset>
         </div>
         <div className="flex justify-end sm:pe-6 text-xl">
@@ -74,16 +74,16 @@ const contactDetails = [
   {
     name: "Phone",
     value: "+91 8148133743",
-    icon: <HiDeviceMobile className="text-blue-600 size-4" />,
+    icon: <HiDeviceMobile className="text-primary size-4" />,
   },
   {
     name: "Email",
     value: "sundararajanselvarasu@gmail.com",
-    icon: <MdEmail className=" text-red-600 size-4" />,
+    icon: <MdEmail className=" text-primary size-4" />,
   },
   {
     name: "Location",
     value: "Tamil Nadu , India",
-    icon: <TiLocation className="text-green-600 size-4" />,
+    icon: <TiLocation className="text-primary size-4" />,
   },
 ];
