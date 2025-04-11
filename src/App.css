@@ -4,6 +4,7 @@
   font-family: "Genos", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+  letter-spacing: 0.7px;
 }
 
 /* custom scroll bar */
@@ -69,4 +70,8 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.text-sky {
+  color: #74cbe7 !important;
 }

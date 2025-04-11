@@ -19,12 +19,12 @@ const Exprienece = () => {
                   <span className="font-medium text-xl fade-up">{d?.name}</span>
                   <div className="flex w-full sm:w-fit sm:items-end sm:flex-row gap-2">
                     <span
-                      className="badge badge-outline badge-success
+                      className="badge badge-outline text-sky
                       rounded text-sm sm:text-lg font-medium"
                     >
                       {d?.year}
                     </span>
-                    <span className="flex badge badge-outline badge-error rounded text-lg">
+                    <span className="flex badge badge-outline text-sky rounded text-lg">
                       {d?.organization}
                     </span>
                   </div>

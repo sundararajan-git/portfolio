@@ -6,7 +6,7 @@ import { ThemeContext } from "../layouts/Provider";
 const ThemeSwitch = () => {
   const { setTheme, theme } = useContext(ThemeContext);
   return (
-    <div className="flex justify-between sm:justify-end sm:px-4 sm:py-4 w-full">
+    <div className="flex justify-between sm:justify-end sm:px-4 sm:pt-4 w-full">
       <p className="text-lg font-semibold sm:hidden">PROTFOLIO</p>
       <label className="swap swap-rotate">
         <input

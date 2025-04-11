@@ -102,7 +102,7 @@ const Projects = () => {
           <div className="flex items-center gap-4">
             <span
               className={`font-semibold flex items-center gap-3 rounded-xl text-md w-fit px-2 py-1 hover:bg-base-200 cursor-pointer ${
-                actions?.personalTab ? "bg-base-200 text-success" : ""
+                actions?.personalTab ? "bg-base-200 text-sky" : ""
               }`}
               onClick={() => {
                 setActions((prev: any) => {
@@ -114,7 +114,7 @@ const Projects = () => {
             </span>
             <span
               className={`font-semibold flex items-center gap-3 rounded-xl text-md w-fit px-2 py-1 hover:bg-base-200 cursor-pointer
-                ${actions?.workTab ? "bg-base-200 text-success" : ""}
+                ${actions?.workTab ? "bg-base-200 text-sky" : ""}
                 `}
               onClick={() => {
                 setActions((prev: any) => {
