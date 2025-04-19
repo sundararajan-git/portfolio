@@ -37,13 +37,23 @@ const About = () => {
         </span>
         <span className="text-2xl font-medium sm:mt-4 fade-up">About Me</span>
         <div className="flex flex-row gap-2">
-          <img
+          <motion.img
             src={user}
             alt="Movie"
             className="rounded-2xl w-1/4 h-fit mt-4 hidden sm:block"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
           />
           <div className="flex flex-col items-start gap-4 w-full sm:p-4 ">
-            <div className="sm:p-4 bg-base-100 rounded-lg">
+            <motion.div
+              className="sm:p-4 bg-base-100 rounded-lg"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+            >
               <p className="text-2xl font-medium">Bio</p>
               <p className="py-3 text-xl fade-up text-justify">
                 I am Sundararajan , from Tamil nadu . I am "MERN Stack Developer
@@ -52,8 +62,14 @@ const About = () => {
                 clean code, performance optimization, and creating seamless user
                 experiences.”
               </p>
-            </div>
-            <div className="sm:p-4 bg-base-100 rounded-lg w-full flex flex-col gap-2 text-lg">
+            </motion.div>
+            <motion.div
+              className="sm:p-4 bg-base-100 rounded-lg w-full flex flex-col gap-2 text-lg"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+            >
               <li className="flex items-center justify-between fade-up">
                 <span>Age</span>
                 <span>25</span>
@@ -70,13 +86,19 @@ const About = () => {
                 <span>Phone</span>
                 <span>+91 8148133743</span>
               </li>
-            </div>
-            <div className="flex items-center mt-2 w-full">
+            </motion.div>
+            <motion.div
+              className="flex items-center mt-2 w-full"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+            >
               <button className="btn btn-accent text-lg">
                 Download CV
                 <MdFileDownload size={20} />
               </button>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -287,12 +309,16 @@ const SkillBadges = () => {
           <h3 className="text-xl font-medium mb-2">{skillCategory.category}</h3>
           <div className="flex flex-wrap gap-3">
             {skillCategory.items.map((skill, idx) => (
-              <div
+              <motion.div
                 key={idx}
                 className="badge badge-ghost flex items-center gap-2 p-3 text-lg hover:scale-105 transition-all cursor-pointer rounded-md"
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: false }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
               >
                 {skill.icon} {skill.name}
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

@@ -32,13 +32,20 @@ const Projects = () => {
               <IoIosArrowForward size={12} />
             </p>
           </div>
-          <iframe
+          <figure>
+            <img
+              src={personalProjects[actions?.singleProject].thumbnail}
+              alt="Shoes"
+              className="w-full h-[500px]"
+            />
+          </figure>
+          {/* <iframe
             width="100%"
             height="500px"
             src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-            title="YouTube video player"
+            title="thubnai"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          ></iframe>
+          ></iframe> */}
 
           <div className="flex flex-col gap-4">
             <span className="font-medium text-xl fade-up">Introduction</span>
@@ -174,7 +181,7 @@ const Projects = () => {
                     <figure>
                       <img
                         src={value?.thumbnail}
-                        alt="Shoes"
+                        alt="thumbnail"
                         className="h-[200px] w-full rounded-xl"
                       />
                     </figure>

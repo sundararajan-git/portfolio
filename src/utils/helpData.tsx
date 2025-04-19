@@ -1,12 +1,27 @@
 import { ReactNode } from "react";
 import { BsGithub } from "react-icons/bs";
 import { FaMediumM } from "react-icons/fa";
-import { FaCodepen, FaYoutube } from "react-icons/fa6";
+import { FaCodepen } from "react-icons/fa6";
 import { MdPermContactCalendar } from "react-icons/md";
 import { PiGearFill } from "react-icons/pi";
 import { RiUser4Fill } from "react-icons/ri";
 import { TbLayoutGridFilled } from "react-icons/tb";
 import { TiHome } from "react-icons/ti";
+import product_store_app from "../../public/product_store/app.png";
+import product_store_iamge1 from "../../public/product_store/image1.png";
+import product_store_iamge2 from "../../public/product_store/image2.png";
+import product_store_iamge3 from "../../public/product_store/image3.png";
+import product_store_iamge4 from "../../public/product_store/image4.png";
+import product_store_iamge5 from "../../public/product_store/image5.png";
+import product_store_iamge6 from "../../public/product_store/image6.png";
+import product_store_iamge7 from "../../public/product_store/image7.png";
+import product_store_iamge8 from "../../public/product_store/image8.png";
+import product_store_iamge9 from "../../public/product_store/image9.png";
+import product_store_iamge10 from "../../public/product_store/image10.png";
+import product_store_iamge11 from "../../public/product_store/image11.png";
+import product_store_iamge12 from "../../public/product_store/image12.png";
+import product_store_iamge13 from "../../public/product_store/image13.png";
+import product_store_iamge14 from "../../public/product_store/image14.png";
 
 export type tabShape = {
   name: string;
@@ -59,11 +74,11 @@ export const socialLinks = [
     link: "https://codepen.io/sundararajan-git",
     icon: <FaCodepen size={15} />,
   },
-  {
-    name: "youtube",
-    link: "https://www.youtube.com/@BitCode64",
-    icon: <FaYoutube size={15} />,
-  },
+  // {
+  //   name: "youtube",
+  //   link: "https://www.youtube.com/@BitCode64",
+  //   icon: <FaYoutube size={15} />,
+  // },
   {
     name: "medium",
     link: "https://medium.com/@sundararajanselvarasu",
@@ -127,8 +142,7 @@ export const workProjects = [
 export const personalProjects: any = {
   product_store: {
     title: "Product Store",
-    thumbnail:
-      "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+    thumbnail: product_store_app,
     description:
       "A CURD operation with a product store using React, Redux, and Tailwind CSS.",
     badge: [
@@ -153,13 +167,24 @@ export const personalProjects: any = {
       "Admin Dashboard – Admins can manage products and orders.",
     ],
     imagurls: [
-      "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
-      "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
-      "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+      product_store_iamge1,
+      product_store_iamge2,
+      product_store_iamge3,
+      product_store_iamge4,
+      product_store_iamge5,
+      product_store_iamge6,
+      product_store_iamge7,
+      product_store_iamge8,
+      product_store_iamge9,
+      product_store_iamge10,
+      product_store_iamge11,
+      product_store_iamge12,
+      product_store_iamge13,
+      product_store_iamge14,
     ],
     links: [
-      "Github Link - https://github.com",
-      "Live Link - https://github.com",
+      "Github Link - https://github.com/sundararajan-git/product_store",
+      "Live Link - https://sundararajan-git.github.io/product_store/",
     ],
   },
 };

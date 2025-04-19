@@ -1,5 +1,6 @@
 import { FaBook } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
+import { motion } from "framer-motion";
 
 const Exprienece = () => {
   return (
@@ -11,9 +12,13 @@ const Exprienece = () => {
         <div className="grid grid-cols-1 gap-4 sm:p-4">
           {exprience.map((d, index: number) => {
             return (
-              <div
+              <motion.div
                 className="bg-base-100 sm:p-6 rounded-lg flex flex-col gap-4"
                 key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: false }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
               >
                 <div className="flex flex-col  sm:flex-row items-start sm:items-center w-full justify-between gap-2 text-nowrap">
                   <span className="font-medium text-xl fade-up">{d?.name}</span>
@@ -43,7 +48,7 @@ const Exprienece = () => {
                     );
                   })}
                 </ul>
-              </div>
+              </motion.div>
             );
           })}
         </div>
