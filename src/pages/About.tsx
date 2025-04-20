@@ -1,7 +1,13 @@
 import { BsFillGridFill } from "react-icons/bs";
 import { MdFileDownload, MdWorkHistory } from "react-icons/md";
 import { RiPoliceBadgeFill, RiUser4Fill } from "react-icons/ri";
-import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
+import {
+  motion,
+  useAnimation,
+  useInView,
+  useMotionValue,
+  useSpring,
+} from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 // import user from "../../public/user.png";
 import user from "../assets/avatar.jpg";
@@ -35,7 +41,15 @@ const About = () => {
         <span className="bg-base-100 font-medium hidden sm:flex items-center gap-3 rounded text-lg w-fit">
           <RiUser4Fill /> Who am I ?
         </span>
-        <span className="text-2xl font-medium sm:mt-4 fade-up">About Me</span>
+        <motion.span
+          className="text-2xl font-medium sm:mt-4"
+          initial={{ opacity: 1, x: -100 }}
+          whileInView={{ x: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+        >
+          About Me
+        </motion.span>
         <div className="flex flex-row gap-2">
           <motion.img
             src={user}
@@ -54,8 +68,8 @@ const About = () => {
               viewport={{ once: false }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
             >
-              <p className="text-2xl font-medium">Bio</p>
-              <p className="py-3 text-xl fade-up text-justify">
+              <p className="text-2xl font-medium">BIO</p>
+              <p className="py-3 text-xl fade-up text-justify font-[500]">
                 I am Sundararajan , from Tamil nadu . I am "MERN Stack Developer
                 with expertise in building dynamic and scalable web applications
                 using MongoDB, Express, React, and Node.js. Passionate about
@@ -64,7 +78,7 @@ const About = () => {
               </p>
             </motion.div>
             <motion.div
-              className="sm:p-4 bg-base-100 rounded-lg w-full flex flex-col gap-2 text-lg"
+              className="sm:p-4 bg-base-100 rounded-lg w-full flex flex-col gap-2 text-lg font-[500]"
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: false }}
@@ -91,11 +105,12 @@ const About = () => {
               className="flex items-center mt-2 w-full"
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
+              whileHover={{ scale: 1.01 }}
               viewport={{ once: false }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
             >
               <button className="btn btn-accent text-lg">
-                Download CV
+                RESUME
                 <MdFileDownload size={20} />
               </button>
             </motion.div>
@@ -106,8 +121,16 @@ const About = () => {
         <span className="bg-base-100 font-medium hidden sm:flex items-center gap-3 rounded text-lg w-fit">
           <MdWorkHistory /> What can I do?
         </span>
-        <span className="text-2xl font-medium mt-4 fade-up">Skills</span>
-        <div className="flex flex-col gap-2 sm:p-2">
+        <motion.span
+          className="text-2xl font-medium mt-4"
+          initial={{ opacity: 1, x: -100 }}
+          whileInView={{ x: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+        >
+          Skills
+        </motion.span>
+        <div className="flex flex-col gap-2 sm:p-0">
           <SkillBadges />
         </div>
       </div>
@@ -115,7 +138,15 @@ const About = () => {
         <span className="bg-base-100 font-medium hidden sm:flex items-center gap-3 rounded text-lg w-fit">
           <RiPoliceBadgeFill /> Achievements
         </span>
-        <span className="text-2xl font-medium mt-4 fade-up">Fun Fcats</span>
+        <motion.span
+          className="text-2xl font-medium mt-4"
+          initial={{ opacity: 1, x: -100 }}
+          whileInView={{ x: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+        >
+          Fun Fcats
+        </motion.span>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
           <AnimatedStat icon={BsFillGridFill} title="Projects" endValue={12} />
 
@@ -179,10 +210,8 @@ const AnimatedStat = ({
       <div className="stat-figure mt-2 text-black">
         <Icon size={25} />
       </div>
-      <div className="stat-title text-lg">{title}</div>
-      {/* Rolling Number Animation */}
+      <div className="stat-title text-lg font-[500]">{title}</div>
       <div className="relative h-16 flex items-start justify-start overflow-hidden">
-        {/* Old number moving up */}
         <motion.div
           key={prevCount}
           initial={{ y: 0, opacity: 1 }}
@@ -194,7 +223,6 @@ const AnimatedStat = ({
           {prevCount}
         </motion.div>
 
-        {/* New number coming from below */}
         <motion.div
           key={displayCount}
           initial={{ y: 20, opacity: 1 }}
@@ -205,7 +233,7 @@ const AnimatedStat = ({
           {displayCount}
         </motion.div>
       </div>
-      <div className="stat-desc text-sm">Last Year</div>
+      <div className="stat-desc text-sm font-[500]">Last Year</div>
     </div>
   );
 };
@@ -302,19 +330,30 @@ const skills = [
 ];
 
 const SkillBadges = () => {
+  const controls = useAnimation();
   return (
-    <div className="p-0 sm:p-6 bg-base-100 rounded-lg sm:shadow-md ">
+    <motion.div
+      className="p-0 sm:p-6 bg-base-100 rounded-lg sm:shadow-md"
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: false }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+    >
       {skills.map((skillCategory, index) => (
-        <div key={index} className="mb-4">
-          <h3 className="text-xl font-medium mb-2">{skillCategory.category}</h3>
+        <div key={index} className="mb-6">
+          <h3 className="text-xl font-medium mb-4">{skillCategory.category}</h3>
           <div className="flex flex-wrap gap-3">
             {skillCategory.items.map((skill, idx) => (
               <motion.div
                 key={idx}
-                className="badge badge-ghost flex items-center gap-2 p-3 text-lg hover:scale-105 transition-all cursor-pointer rounded-md"
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: false }}
+                className="badge badge-ghost flex items-center gap-2 p-3 text-lg hover:scale-105 transition-all cursor-pointer rounded-md font-[500]"
+                drag
+                onDragEnd={() => {
+                  controls.start({ x: 0, y: 0 });
+                }}
+                animate={controls}
+                initial={{ opacity: 1, scale: 1 }}
+                whileHover={{ scale: 1.01 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
               >
                 {skill.icon} {skill.name}
@@ -323,6 +362,6 @@ const SkillBadges = () => {
           </div>
         </div>
       ))}
-    </div>
+    </motion.div>
   );
 };

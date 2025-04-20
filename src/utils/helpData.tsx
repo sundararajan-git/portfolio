@@ -7,21 +7,21 @@ import { PiGearFill } from "react-icons/pi";
 import { RiUser4Fill } from "react-icons/ri";
 import { TbLayoutGridFilled } from "react-icons/tb";
 import { TiHome } from "react-icons/ti";
-import product_store_app from "../../public/product_store/app.png";
-import product_store_iamge1 from "../../public/product_store/image1.png";
-import product_store_iamge2 from "../../public/product_store/image2.png";
-import product_store_iamge3 from "../../public/product_store/image3.png";
-import product_store_iamge4 from "../../public/product_store/image4.png";
-import product_store_iamge5 from "../../public/product_store/image5.png";
-import product_store_iamge6 from "../../public/product_store/image6.png";
-import product_store_iamge7 from "../../public/product_store/image7.png";
-import product_store_iamge8 from "../../public/product_store/image8.png";
-import product_store_iamge9 from "../../public/product_store/image9.png";
-import product_store_iamge10 from "../../public/product_store/image10.png";
-import product_store_iamge11 from "../../public/product_store/image11.png";
-import product_store_iamge12 from "../../public/product_store/image12.png";
-import product_store_iamge13 from "../../public/product_store/image13.png";
-import product_store_iamge14 from "../../public/product_store/image14.png";
+import product_store_app from "/product_store/app.png";
+import product_store_iamge1 from "/product_store/image1.png";
+import product_store_iamge2 from "/product_store/image2.png";
+import product_store_iamge3 from "/product_store/image3.png";
+import product_store_iamge4 from "/product_store/image4.png";
+import product_store_iamge5 from "/product_store/image5.png";
+import product_store_iamge6 from "/product_store/image6.png";
+import product_store_iamge7 from "/product_store/image7.png";
+import product_store_iamge8 from "/product_store/image8.png";
+import product_store_iamge9 from "/product_store/image9.png";
+import product_store_iamge10 from "/product_store/image10.png";
+import product_store_iamge11 from "/product_store/image11.png";
+import product_store_iamge12 from "/product_store/image12.png";
+import product_store_iamge13 from "/product_store/image13.png";
+import product_store_iamge14 from "/product_store/image14.png";
 
 export type tabShape = {
   name: string;
@@ -146,7 +146,9 @@ export const personalProjects: any = {
     description:
       "A CURD operation with a product store using React, Redux, and Tailwind CSS.",
     badge: [
-      <div className="badge badge-secondary rounded-4xl text-sm">NEW</div>,
+      <div className="badge bg-green-50 dark:bg-transparent text-green-600 rounded-4xl text-sm">
+        MERN
+      </div>,
     ],
     youtubeVideoUrl: "https://www.youtube.com/embed/2r5h9e1b4xk",
     introduction:

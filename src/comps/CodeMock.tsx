@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const text = `const express = require('express');
 const app = express();
@@ -112,10 +113,15 @@ const CodeMock: React.FC = () => {
   }, []);
 
   return (
-    <pre className="font-mono text-md sm:text-lg w-full h-[55vh] sm:h-full bg-black text-white p-4 rounded-lg">
+    <motion.pre
+      className="font-mono text-md sm:text-lg w-full h-[55vh] sm:h-full self-start mt-[3%] bg-black text-white p-4 pb-0 rounded-3xl"
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+    >
       {highlightCode(displayText)}
       {showPlink ? <span className="animate-ping">|</span> : null}
-    </pre>
+    </motion.pre>
   );
 };
 

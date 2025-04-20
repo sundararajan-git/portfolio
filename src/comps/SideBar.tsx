@@ -62,7 +62,7 @@ const SideBar = () => {
               </div>
               <div className="flex flex-col gap-2 w-full items-center">
                 <p className="text-xl font-semibold">Sundar S</p>
-                <p className="text-lg">Mern Stack Devloper</p>
+                <p className="text-lg font-medium">Mern Stack Devloper</p>
               </div>
             </div>
 

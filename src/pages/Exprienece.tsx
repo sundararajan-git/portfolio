@@ -5,50 +5,61 @@ import { motion } from "framer-motion";
 const Exprienece = () => {
   return (
     <div className="w-full h-full p-2 overflow-auto flex flex-col gap-4 fade-up ">
-      <div className="flex flex-col gap-4 mt-[2%]">
-        <span className="bg-base-100 font-medium flex items-center gap-3 rounded text-lg w-fit sm:px-2 py-1">
+      <div className="flex flex-col gap-4">
+        <motion.span
+          className="bg-base-100 font-medium flex items-center gap-3 rounded text-lg w-fit sm:px-2 py-1"
+          initial={{ opacity: 1, x: -100 }}
+          whileInView={{ x: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+        >
           <FaBook /> Education & Experience
-        </span>
-        <div className="grid grid-cols-1 gap-4 sm:p-4">
+        </motion.span>
+        <div className="grid grid-cols-1 gap-6">
           {exprience.map((d, index: number) => {
             return (
-              <motion.div
-                className="bg-base-100 sm:p-6 rounded-lg flex flex-col gap-4"
+              <div
+                className="bg-base-100 sm:px-4 sm:py-2 sm:pb-4 rounded-xl flex flex-col gap-4 shadow-md"
                 key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: false }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
               >
                 <div className="flex flex-col  sm:flex-row items-start sm:items-center w-full justify-between gap-2 text-nowrap">
-                  <span className="font-medium text-xl fade-up">{d?.name}</span>
-                  <div className="flex w-full sm:w-fit sm:items-end sm:flex-row gap-2">
-                    <span
-                      className="badge badge-outline text-sky
-                      rounded text-sm sm:text-lg font-medium"
-                    >
+                  <motion.span
+                    className="font-medium text-xl uppercase"
+                    initial={{ opacity: 1, x: -100 }}
+                    whileInView={{ x: 0 }}
+                    viewport={{ once: false }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                  >
+                    {d?.name}
+                  </motion.span>
+                  <div className="flex w-full sm:w-fit sm:items-end sm:flex-row gap-4">
+                    <span className="rounded text-sm sm:text-lg font-medium text-green-600">
                       {d?.year}
                     </span>
-                    <span className="flex badge badge-outline text-sky rounded text-lg">
+                    <span className="flex rounded text-lg font-medium text-red-600">
                       {d?.organization}
                     </span>
                   </div>
                 </div>
 
-                <ul className="flex flex-col gap-2">
+                <ul className="flex flex-col gap-4">
                   {d?.list?.map((list: string, jndex: number) => {
                     return (
-                      <li
-                        className="flex gap-2 text-justify text-xl"
+                      <motion.li
+                        className="flex gap-2 text-justify text-xl font-[400]"
                         key={index + jndex}
+                        initial={{ opacity: 1, y: 20, x: 0 }}
+                        whileInView={{ y: 0 }}
+                        viewport={{ once: false }}
+                        transition={{ duration: 0.5, ease: "easeInOut" }}
                       >
                         <GoDotFill className="size-6 sm:size-4 md:size-2 mt-1 sm:mt-3" />
                         {list}
-                      </li>
+                      </motion.li>
                     );
                   })}
                 </ul>
-              </motion.div>
+              </div>
             );
           })}
         </div>

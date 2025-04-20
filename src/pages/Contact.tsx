@@ -1,89 +1,156 @@
-import { HiDeviceMobile } from "react-icons/hi";
+import { useState, Suspense, useContext } from "react";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, Html } from "@react-three/drei";
+import { FaSquarePhone } from "react-icons/fa6";
+import { IoLocationSharp, IoLogoLinkedin } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
-import { RiChatSmile3Fill } from "react-icons/ri";
-import { TiLocation } from "react-icons/ti";
+import { ThemeContext } from "../layouts/Provider";
 
-const Contact = () => {
-  return (
-    <div className="w-full h-full sm:p-2 overflow-auto flex flex-col gap-4 fade-up">
-      <div className="flex flex-col gap-4 mt-[2%]">
-        <span className="bg-base-100 font-medium hidden sm:flex items-center gap-3 rounded text-lg w-fit sm:px-2 sm:py-1">
-          <RiChatSmile3Fill /> Get In touch
+const contactItems = [
+  {
+    label: (
+      <span className="flex items-center gap-2 text-2xl">
+        <span>
+          <FaSquarePhone className="text-green-600" />
         </span>
-        <span className="text-2xl font-medium mt-4">Contact</span>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 p-1 sm:p-0">
-          {contactDetails.map((i) => {
-            return (
-              <div className="sm:px-4 py-3 bg-base-100 shadow-none flex items-start sm:items-center w-full gap-2 sm:gap-4 rounded-lg fade-up ">
-                <div className="flex flex-col sm:gap-1 p-0">
-                  <p className="sm:text-md flex flex-row gap-2 items-center">
-                    {i.icon}
-                    {i?.name}
-                  </p>
-                  <p className="sm:text-lg">{i?.value}</p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-        <span className="text-2xl font-medium mt-4">Send Mail</span>
-        <div className="flex flex-col items-center gap-2 w-full justify-between sm:p-4 fade-up">
-          <fieldset className="fieldset w-full">
-            <legend className="fieldset-legend font-normal text-lg">
-              Email Address
-            </legend>
-            <input
-              type="email"
-              className="w-full border rounded border-gray-400  outline-0 text-lg p-1 ps-2"
-              placeholder="Email address"
-            />
-          </fieldset>
-          <fieldset className="fieldset w-full">
-            <legend className="fieldset-legend font-normal text-lg">
-              Subject
-            </legend>
-            <input
-              type="text"
-              className="w-full border rounded border-gray-400  outline-0 text-lg p-1 ps-2 "
-              placeholder="Subject"
-            />
-          </fieldset>
-          <fieldset className="fieldset w-full">
-            <legend className="fieldset-legend font-normal text-lg">
-              Your Msg
-            </legend>
-            <input
-              type="text"
-              className="w-full border rounded border-gray-400  outline-0 text-lg p-1 ps-2 "
-              placeholder="Enter your Msg .. "
-            />
-          </fieldset>
-        </div>
-        <div className="flex justify-end sm:pe-6 text-xl">
-          <button className="btn btn-primary round-lg px-6 py-1.5 h-fit">
-            Send
-          </button>
-        </div>
+        Phone
+      </span>
+    ),
+    href: "tel:+919876543210",
+    tooltip: "Call me",
+  },
+  {
+    label: (
+      <span className="flex items-center gap-2 text-2xl">
+        <span>
+          <MdEmail className="text-red-600" />
+        </span>
+        Email
+      </span>
+    ),
+    href: "mailto:youremail@example.com",
+    tooltip: "Send an email",
+  },
+  {
+    label: (
+      <span className="flex items-center gap-2 text-2xl">
+        <span>
+          <IoLocationSharp className="text-blue-600" />
+        </span>
+        Location
+      </span>
+    ),
+    href: "https://maps.google.com/?q=Chennai",
+    tooltip: "View location",
+  },
+  {
+    label: (
+      <span className="flex items-center gap-2 text-2xl">
+        <span>
+          <IoLogoLinkedin className="text-blue-600" />
+        </span>
+        Linkedin
+      </span>
+    ),
+    href: "https://maps.google.com/?q=Chennai",
+    tooltip: "View location",
+  },
+];
+
+const SpherePoint = ({ position, item }: any) => {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <group position={position}>
+      <Html distanceFactor={10} center>
+        <a
+          href={item.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          className={`
+            relative
+            px-3 py-1.5 
+            rounded-lg 
+            text-base 
+            whitespace-nowrap 
+            transition-all 
+            duration-300 
+            font-medium
+          `}
+        >
+          {item.label}
+          {hovered && (
+            <span
+              className={`
+                absolute 
+                bottom-[110%] 
+                left-1/2 
+                -translate-x-1/2 
+                bg-[#222] 
+                text-white 
+                px-2 py-1 
+                rounded-md 
+                text-xs 
+                whitespace-nowrap
+              `}
+            >
+              {item.tooltip}
+            </span>
+          )}
+        </a>
+      </Html>
+    </group>
+  );
+};
+
+const SphereCloud = () => {
+  const radius = 3;
+  const count = contactItems.length;
+  const angleStep = (2 * Math.PI) / count;
+  const { theme } = useContext(ThemeContext);
+
+  return (
+    <>
+      {/* Optional sphere wireframe for visual structure */}
+      <mesh>
+        <sphereGeometry args={[radius, 32, 32]} />
+        <meshBasicMaterial
+          color={theme === "dark" ? "white" : "black"}
+          wireframe
+          transparent
+          opacity={0.1}
+        />
+      </mesh>
+
+      {contactItems.map((item, i) => {
+        const theta = i * angleStep;
+        const x = radius * Math.cos(theta);
+        const y = radius * Math.sin(theta);
+        const z = radius * Math.sin(i); // add slight z-variation
+        return <SpherePoint key={i} position={[x, y, z]} item={item} />;
+      })}
+    </>
+  );
+};
+
+const ContactSphere3D = () => {
+  return (
+    <div className="flex flex-col items-center justify-center w-full h-full">
+      <h2 className="text-3xl font-bold mb-6">Contact Me</h2>
+      <div className="w-full h-full">
+        <Canvas camera={{ position: [0, 0, 10], fov: 50 }}>
+          <ambientLight intensity={1} />
+          <directionalLight position={[5, 5, 5]} />
+          <Suspense fallback={null}>
+            <SphereCloud />
+          </Suspense>
+          <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={1.5} />
+        </Canvas>
       </div>
     </div>
   );
 };
-export default Contact;
 
-const contactDetails = [
-  {
-    name: "Phone",
-    value: "+91 8148133743",
-    icon: <HiDeviceMobile className="text-primary size-4" />,
-  },
-  {
-    name: "Email",
-    value: "sundararajanselvarasu@gmail.com",
-    icon: <MdEmail className=" text-primary size-4" />,
-  },
-  {
-    name: "Location",
-    value: "Tamil Nadu , India",
-    icon: <TiLocation className="text-primary size-4" />,
-  },
-];
+export default ContactSphere3D;
