@@ -22,6 +22,7 @@ import product_store_iamge11 from "/product_store/image11.png";
 import product_store_iamge12 from "/product_store/image12.png";
 import product_store_iamge13 from "/product_store/image13.png";
 import product_store_iamge14 from "/product_store/image14.png";
+import { SiLeetcode } from "react-icons/si";
 
 export type tabShape = {
   name: string;
@@ -74,16 +75,21 @@ export const socialLinks = [
     link: "https://codepen.io/sundararajan-git",
     icon: <FaCodepen size={15} />,
   },
-  // {
-  //   name: "youtube",
-  //   link: "https://www.youtube.com/@BitCode64",
-  //   icon: <FaYoutube size={15} />,
-  // },
+  {
+    name: "leetcode",
+    link: "https://leetcode.com/u/sundararajan-git/",
+    icon: <SiLeetcode size={13} />,
+  },
   {
     name: "medium",
     link: "https://medium.com/@sundararajanselvarasu",
     icon: <FaMediumM size={13} />,
   },
+  // {
+  //   name: "youtube",
+  //   link: "https://www.youtube.com/@BitCode64",
+  //   icon: <FaYoutube size={15} />,
+  // },
 ];
 
 export const workProjects = [

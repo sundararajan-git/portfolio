@@ -42,7 +42,7 @@ const About = () => {
           <RiUser4Fill /> Who am I ?
         </span>
         <motion.span
-          className="text-2xl font-medium sm:mt-4"
+          className="text-2xl font-semibold sm:mt-4"
           initial={{ opacity: 1, x: -100 }}
           whileInView={{ x: 0 }}
           viewport={{ once: false }}
@@ -122,7 +122,7 @@ const About = () => {
           <MdWorkHistory /> What can I do?
         </span>
         <motion.span
-          className="text-2xl font-medium mt-4"
+          className="text-2xl font-semibold mt-4"
           initial={{ opacity: 1, x: -100 }}
           whileInView={{ x: 0 }}
           viewport={{ once: false }}
@@ -139,7 +139,7 @@ const About = () => {
           <RiPoliceBadgeFill /> Achievements
         </span>
         <motion.span
-          className="text-2xl font-medium mt-4"
+          className="text-2xl font-semibold mt-4"
           initial={{ opacity: 1, x: -100 }}
           whileInView={{ x: 0 }}
           viewport={{ once: false }}

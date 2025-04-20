@@ -5,6 +5,7 @@ import { FaSquarePhone } from "react-icons/fa6";
 import { IoLocationSharp, IoLogoLinkedin } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
 import { ThemeContext } from "../layouts/Provider";
+import { LuExternalLink } from "react-icons/lu";
 
 const contactItems = [
   {
@@ -16,7 +17,7 @@ const contactItems = [
         Phone
       </span>
     ),
-    href: "tel:+919876543210",
+    href: "tel:+918148133743",
     tooltip: "Call me",
   },
   {
@@ -28,7 +29,7 @@ const contactItems = [
         Email
       </span>
     ),
-    href: "mailto:youremail@example.com",
+    href: "mailto:sundararajanselvarasu@gmail.com",
     tooltip: "Send an email",
   },
   {
@@ -69,34 +70,15 @@ const SpherePoint = ({ position, item }: any) => {
           rel="noopener noreferrer"
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
-          className={`
-            relative
-            px-3 py-1.5 
-            rounded-lg 
-            text-base 
-            whitespace-nowrap 
-            transition-all 
-            duration-300 
-            font-medium
-          `}
+          className={`relative px-3 py-1.5 rounded-lg text-base whitespace-nowrap transition-all duration-300 font-medium`}
         >
           {item.label}
           {hovered && (
             <span
-              className={`
-                absolute 
-                bottom-[110%] 
-                left-1/2 
-                -translate-x-1/2 
-                bg-[#222] 
-                text-white 
-                px-2 py-1 
-                rounded-md 
-                text-xs 
-                whitespace-nowrap
-              `}
+              className={` absolute bottom-[110%] left-1/2 -translate-x-1/2 bg-[#222] text-white px-2 py-1 rounded-sm text-xs whitespace-nowrap flex items-center gap-2`}
             >
-              {item.tooltip}
+              <span>{item.tooltip}</span>
+              <LuExternalLink />
             </span>
           )}
         </a>

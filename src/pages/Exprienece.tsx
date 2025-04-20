@@ -19,12 +19,12 @@ const Exprienece = () => {
           {exprience.map((d, index: number) => {
             return (
               <div
-                className="bg-base-100 sm:px-4 sm:py-2 sm:pb-4 rounded-xl flex flex-col gap-4 shadow-md"
+                className="bg-base-100 sm:px-4 sm:py-2 sm:pb-4 rounded-xl flex flex-col gap-4 md:shadow-md"
                 key={index}
               >
                 <div className="flex flex-col  sm:flex-row items-start sm:items-center w-full justify-between gap-2 text-nowrap">
                   <motion.span
-                    className="font-medium text-xl uppercase"
+                    className="font-semibold text-xl uppercase"
                     initial={{ opacity: 1, x: -100 }}
                     whileInView={{ x: 0 }}
                     viewport={{ once: false }}
@@ -32,8 +32,8 @@ const Exprienece = () => {
                   >
                     {d?.name}
                   </motion.span>
-                  <div className="flex w-full sm:w-fit sm:items-end sm:flex-row gap-4">
-                    <span className="rounded text-sm sm:text-lg font-medium text-green-600">
+                  <div className="flex items-center w-full sm:w-fit sm:items-end sm:flex-row gap-4">
+                    <span className="rounded text-lg font-medium text-green-600">
                       {d?.year}
                     </span>
                     <span className="flex rounded text-lg font-medium text-red-600">

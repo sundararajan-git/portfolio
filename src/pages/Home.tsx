@@ -82,7 +82,7 @@ const Home = () => {
         </div>
       </div>
       <br />
-      <div className="flex sm:hidden flex-col items-center gap-1 w-full">
+      <div className="flex sm:hidden flex-col items-center gap-1 w-full mt-6">
         <div className="flex items-center gap-4 w-full justify-center pt-3">
           {socialLinks?.map((link, index) => {
             return (

@@ -2,12 +2,16 @@ import { useContext } from "react";
 import { FiMoon } from "react-icons/fi";
 import { HiSun } from "react-icons/hi";
 import { ThemeContext } from "../layouts/Provider";
+import { IoLogoPolymer } from "react-icons/io";
 
 const ThemeSwitch = () => {
   const { setTheme, theme } = useContext(ThemeContext);
   return (
     <div className="flex justify-between sm:justify-end sm:px-4 sm:pt-4 w-full">
-      <p className="text-lg font-semibold sm:hidden">PROTFOLIO</p>
+      <p className="text-lg font-semibold flex items-center gap-2 sm:hidden">
+        <IoLogoPolymer />
+        <span>PROTFOLIO</span>
+      </p>
       <label className="swap swap-rotate">
         <input
           type="checkbox"

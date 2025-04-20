@@ -114,7 +114,7 @@ const CodeMock: React.FC = () => {
 
   return (
     <motion.pre
-      className="font-mono text-md sm:text-lg w-full h-[55vh] sm:h-full self-start mt-[3%] bg-black text-white p-4 pb-0 rounded-3xl"
+      className="font-mono text-md sm:text-lg w-full h-[65vh] sm:h-full self-start mt-[3%] bg-black text-white p-4 pb-0 rounded-3xl"
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}

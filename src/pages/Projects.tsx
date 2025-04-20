@@ -20,9 +20,7 @@ const Projects = () => {
       ) : (
         <div className="flex flex-col gap-4 sm:mt-[2%]">
           <div className="w-full flex items-center justify-between">
-            <span className="text-2xl font-medium uppercase px-2">
-              Projects
-            </span>
+            <span className="text-2xl font-bold uppercase px-2">Projects</span>
             {actions?.personalTab && (
               <div className="dropdown dropdown-bottom dropdown-end">
                 <div
@@ -110,7 +108,7 @@ const Projects = () => {
                       <img
                         src={value?.thumbnail}
                         alt="thumbnail"
-                        className="h-[200px] w-full rounded-xl"
+                        className="h-[250px] md:h-[200px] w-full rounded-xl object-fill"
                       />
                     </figure>
                     <div className="card-body bg-base px-0">

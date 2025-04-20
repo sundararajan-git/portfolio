@@ -97,24 +97,25 @@ const SingleProject = (props: any) => {
         >
           How It Works
         </motion.span>
-        <motion.ul
-          className="flex flex-col gap-2"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: false }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
-        >
+        <ul className="flex flex-col gap-2">
           {personalProjects[actions?.singleProject].working?.map(
             (list: string, index: number) => {
               return (
-                <li className="flex gap-2 text-justify text-xl" key={index}>
+                <motion.li
+                  className="flex gap-2 text-justify text-xl"
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: false }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                >
                   <GoDotFill className="size-6 sm:size-4 md:size-2 mt-1 sm:mt-3" />
                   {list}
-                </li>
+                </motion.li>
               );
             }
           )}
-        </motion.ul>
+        </ul>
         <div className="carousel carousel-center rounded-box w-full space-x-4 p-4">
           {personalProjects[actions?.singleProject].imagurls?.map(
             (url: string) => {
@@ -154,12 +155,20 @@ const SingleProject = (props: any) => {
               return (
                 <li className="flex gap-2 text-justify text-xl" key={index}>
                   <GoDotFill className="size-4 sm:size-4 md:size-2 mt-1 sm:mt-3" />
-                  {list}
+                  <p>{list.split("-")[0]}</p>
+                  <span>-</span>
+                  <a
+                    href={list.split("-")[1]}
+                    className="hover:text-blue-600 hover:underline"
+                  >
+                    {list.split("-")[1]}
+                  </a>
                 </li>
               );
             }
           )}
         </motion.ul>
+        <br />
       </div>
     </div>
   );
