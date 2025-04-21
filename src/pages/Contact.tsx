@@ -121,7 +121,7 @@ const ContactSphere3D = () => {
   return (
     <div className="flex flex-col items-center justify-center w-full h-full">
       <h2 className="text-3xl font-bold mb-6">Contact Me</h2>
-      <div className="w-full h-full">
+      <div className="w-full h-fit sm:h-full">
         <Canvas camera={{ position: [0, 0, 10], fov: 50 }}>
           <ambientLight intensity={1} />
           <directionalLight position={[5, 5, 5]} />
